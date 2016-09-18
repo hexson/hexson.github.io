@@ -17,6 +17,10 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-coffee-react": "^5.0.1",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "jsx-loader": "^0.13.2",
+    "webpack": "^1.13.2"
   }
 }
