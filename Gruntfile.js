@@ -1,3 +1,6 @@
+var webpack = require('webpack');
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+
 module.exports = function(grunt){
 	grunt.initConfig({
 		cjsx: {
@@ -11,6 +14,35 @@ module.exports = function(grunt){
 						ext: '.js'
 					}
 				]
+			}
+		},
+		webpack: {
+			transform: {
+				plugins: [commonsPlugin],
+				entry: {
+					app: './public/jsx/app.js',
+					example: './public/jsx/example.js'
+				},
+				output: {
+					path: 'public/js',
+					filename: '[name].js'
+				},
+				module: {
+					loaders: [
+						{
+							test: /\.js$/, loader: "babel-loader"
+						},
+						{
+							test: /\.js$/, loader: 'babel-loader!jsx-loader?harmony'
+						}
+					]
+				},
+				resolve: {
+					root: './public/js/',
+					alias: {
+						'app': 'app.js'
+					}
+				}
 			}
 		},
 		less: {
@@ -44,9 +76,16 @@ module.exports = function(grunt){
 			// 	files: 'public/jsx/*.jsx',
 			// 	tasks: ['cjsx:transform'],
 			// 	options: {
-			// 		debounceDelay: 250
+			// 		debounceDelay: 350
 			// 	}
 			// }
+			webpack: {
+				files: 'public/jsx/*.js',
+				tasks: ['webpack:transform'],
+				options: {
+					debounceDelay: 250
+				}
+			},
 			less: {
 				files: 'public/less/*.less',
 				tasks: ['less:transform'],
@@ -57,8 +96,9 @@ module.exports = function(grunt){
 		}
 	});
 	// grunt.loadNpmTasks('grunt-coffee-react');
+	grunt.loadNpmTasks('grunt-webpack');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.registerTask('default', ['less', 'cssmin', 'watch']);
+	grunt.registerTask('default', ['webpack', 'less', 'cssmin', 'watch']);
 }
