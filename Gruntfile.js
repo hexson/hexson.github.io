@@ -21,8 +21,7 @@ module.exports = function(grunt){
 				plugins: [commonsPlugin],
 				entry: {
 					app: './public/jsx/app.js',
-					example: './public/jsx/example.js',
-					ReactRouter: './public/jsx/ReactRouter.js'
+					example: './public/jsx/example.js'
 				},
 				output: {
 					path: 'public/js',
@@ -31,10 +30,10 @@ module.exports = function(grunt){
 				module: {
 					loaders: [
 						{
-							test: /\.js$/, exclude: /node_modules/, loader: 'babel'
+							test: /\.js$/, loader: "babel"
 						}
 						// {
-						// 	test: /\.js$/, loader: 'babel!jsx-loader?harmony'
+						// 	test: /\.js$/, loader: 'babel-loader!jsx-loader?harmony'
 						// }
 					]
 				},
