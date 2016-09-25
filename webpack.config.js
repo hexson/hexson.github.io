@@ -35,7 +35,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.less$/,
+				test: /\.css$/,
 				exclude: /node_modules/,
 				loader: ExtractTextPlugin.extract('style', 'css', {
 					publicPath: '.'
