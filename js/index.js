@@ -1,8 +1,9 @@
-import React from 'react'
-import { render } from 'react-dom'
-import '../less/common.less'
+import React from 'react';
+import { render } from 'react-dom';
+import Root from './containers/Root.js';
+
 
 render(
-	<span>blog 别着急,更新中啦...</span>,
+	<Root />,
 	document.getElementById('hexson')
 );
