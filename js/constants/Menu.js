@@ -1,8 +1,8 @@
 export const NAME = 'hexson';
 export const MENU = [
 	{
-		path: '/',
-		name: '主页'
+		path: 'all',
+		name: '全部'
 	},
 	{
 		path: 'archives',
@@ -16,8 +16,8 @@ export const MENU = [
 		path: 'about',
 		name: '关于'
 	},
-	// {
-	// 	path: 'search',
-	// 	name: '搜索'
-	// }
+	{
+		path: 'search',
+		name: '搜索'
+	}
 ];

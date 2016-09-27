@@ -13,6 +13,11 @@ var Index = (location, cb) => {
 		cb(null, require('../containers/Index.js').default)
 	}, 'index')
 };
+var All = (location, cb) => {
+	require.ensure([], require => {
+		cb(null, require('../containers/All.js').default)
+	}, 'all')
+};
 var Archives = (location, cb) => {
 	require.ensure([], require => {
 		cb(null, require('../containers/Archives.js').default)
@@ -38,6 +43,7 @@ var About = (location, cb) => {
 const routes = (
 	<Route path="/" component={App}>
 		<IndexRoute getComponent={Index} />
+		<Route path="all" getComponent={All} />
 		<Route path="archives" getComponent={Archives} />
 		<Route path="article" getComponent={Article} />
 		<Route path="tags" getComponent={Tags} />

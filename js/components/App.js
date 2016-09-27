@@ -6,7 +6,6 @@ export default class App extends Component {
 		this.baiduStatistics();
 	}
 	baiduStatistics (){
-		console.log('baidu tongji');
 		if (location.host.indexOf('hexson') >= 0){
 			var _hmt = _hmt || [];
 			(function(){
