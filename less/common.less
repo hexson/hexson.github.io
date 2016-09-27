@@ -1,7 +1,29 @@
+/* const */
 @font-family-1: \5FAE\8EDF\6B63\9ED1\9AD4;
 @font-family-2: \5FAE\8F6F\96C5\9ED1;
 @font-family-3: \534E\6587\7EC6\9ED1;
 @color: #2196f3;
+
+
+/* base common */
+.w() {
+	width: 100%;
+}
+.create-font-size(@n) when (@n >= 12) {
+	.create-font-size((@n - 2));
+	.f@{n} {
+		font-size: @n * .1rem;
+	}
+}
+.transition(@time, @delay:0s) {
+	transition: @time all ease-in-out @delay;
+	-webkit-transition: @time all ease-in-out @delay;
+	-moz-transition: @time all ease-in-out @delay;
+	-o-transition: @time all ease-in-out @delay;
+	-ms-transition: @time all ease-in-out @delay;
+}
+
+
 html,body,div,h1,h2,h3,h4,h5,h6,p,span,a,ul,li,input,button,textarea {
 	font-family: 'PT serif', @font-family-1, @font-family-2, @font-family-3, Microsoft Yahei, Hiragino Sans GB, sans-serif, Arial;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -11,7 +33,7 @@ html,body,div,h1,h2,h3,h4,h5,h6,p,span,a,ul,li,input,button,textarea {
 	font-size: 62.5%;
 }
 html,body {
-	width: 100%;
+	.w();
 	height: 100%;
 }
 ::-webkit-scrollbar-track-piece {
@@ -39,8 +61,8 @@ a {
 	text-decoration: none;
 	color: @color;
 }
-b {
-	width: 100%;
+.b {
+	.w();
 	height: 2rem;
 	line-height: 2rem;
 	display: block;
@@ -60,25 +82,21 @@ b {
 	text-align: right;
 }
 
-.create-font-size(@n) when (@n >= 12) {
-	.create-font-size((@n - 2));
-	.f@{n} {
-		font-size: @n * .1rem;
-	}
-}
+
 .create-font-size(30);
 
+
 .index {
-	width: 100%;
-	height: 18rem;
+	.w();
+	height: 20rem;
 	position: absolute;
 	top: 50%;
 	left: 0;
-	margin-top: -9rem;
+	margin-top: -10rem;
 }
 .avatar {
-	width: 10rem;
-	height: 10rem;
+	width: 12rem;
+	height: 12rem;
 	border-radius: 100%;
 	margin: 0 auto;
 	background: url(../img/avatar.jpg) no-repeat center;
@@ -89,4 +107,32 @@ b {
 	padding: 1rem 0;
 	margin: 1rem 0;
 	text-transform: capitalize;
+	b {
+		position: relative;
+		cursor: pointer;
+		&:hover:before {
+			visibility: visible;
+			transform: scaleX(1);
+		}
+		&:before {
+			content: '';
+			.w();
+			height: 2px;
+			position: absolute;
+			bottom: -1px;
+			background-color: #000000;
+			visibility: hidden;
+			transform: scaleX(0);
+			.transition(.2s);
+		};
+	};
+}
+.header {
+	.w();
+	padding: 2rem 0;
+}
+.content {
+	.w();
+	max-width: 700px;
+	margin: 0 auto;
 }
