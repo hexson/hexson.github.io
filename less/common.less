@@ -121,9 +121,19 @@ a {
 			position: absolute;
 			bottom: -1px;
 			background-color: #000000;
+			z-index: 9;
 			visibility: hidden;
 			transform: scaleX(0);
 			.transition(.2s);
+		};
+		&:after {
+			content: '';
+			.w();
+			height: 0px;
+			position: absolute;
+			bottom: -1px;
+			left: 0;
+			border-top: 2px dotted #666666;
 		};
 	};
 }
