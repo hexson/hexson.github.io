@@ -124,6 +124,9 @@ a {
 .block {
 	display: block;
 }
+.none {
+	display: none;
+}
 
 .create-margin-padding(30);
 .create-font-size(30);
@@ -280,10 +283,10 @@ a {
 	animation: loadbebore .4s 1 ease-in-out;
 }
 @keyframes loadbebore {
-	0%, 100% {
+	0%, 50%, 100% {
 		transform: scale(1);
 		-webkit-transform: scale(1);
-	}50% {
+	}25%, 75% {
 		transform: scale(1.2);
 		-webkit-transform: scale(1.2);
 	}
