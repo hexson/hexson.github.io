@@ -74,17 +74,17 @@ html,body {
 	height: 100%;
 }
 ::-webkit-scrollbar-track-piece {
-	background: #222222;
+	background-color: #cccccc;
 }
 ::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
+	width: 4px;
+	height: 6px;
 }
 ::-webkit-scrollbar-thumb {
 	height: 40px;
 	background-color: #999999;
 	&:hover {
-		background-color: #aaaaaa;
+		background-color: #666666;
 	};
 }
 ul,li {
@@ -273,4 +273,18 @@ a {
 .list-view {
 	text-indent: 2.6rem;
 	text-align: justify;
+}
+
+.load-before-animation {
+	-webkit-animation: loadbebore .4s 1 ease-in-out;
+	animation: loadbebore .4s 1 ease-in-out;
+}
+@keyframes loadbebore {
+	0%, 100% {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}50% {
+		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+	}
 }
