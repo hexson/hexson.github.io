@@ -9,18 +9,18 @@ export default class All extends Component {
 	constructor (props){
 		super(props);
 		this.loadBefore = this.loadBefore.bind(this);
-		this.changeBtn = this.changeBtn.bind(this, false);
+		this.changeBtn = this.changeBtn.bind(this);
 		this.state = {
 			list: [1],
 			isNextPageView: true,
-			btnClass: 'load-before block f18'
+			btnClass: 'load-before block f18 none'
 		}
 	}
 	loadBefore (){
 		if (this.state.isNextPageView){
 			let list = this.state.list.slice(0);
 			list.push(list[list.length-1]+1);
-			console.log(typeof this.setState);
+			// console.log(typeof this.setState);
 			this.setState({
 				list: list
 			})
@@ -36,12 +36,15 @@ export default class All extends Component {
 		}
 	}
 	changeBtn (isNextPageView){
+		// console.log(isNextPageView);
 		this.setState({
-			isNextPageView: false
+			isNextPageView: isNextPageView,
+			btnClass: 'load-before block f18'
 		});
 	}
 	render (){
 		var loadBeforeText = this.state.isNextPageView ? '加载更早的文章' : '没有更多了';
+		// console.log(this.state.isNextPageView);
 		return (
 			<div className="content">
 				<Header />
