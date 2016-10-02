@@ -17,13 +17,14 @@ export default class List extends Component {
 		}
 	}
 	componentDidMount (){
-		/*
+		// /*
 		$.ajax({
 			url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
 			data: {
 				filter: this.props.filter || 'created',
 				per_page: this.props.perpage || 10,
-				page: this.props.page || 1
+				page: this.props.page || 1,
+				labels: this.props.labels || null
 			},
 			success: result => {
 				this.setState({
@@ -39,8 +40,8 @@ export default class List extends Component {
 				})
 			}
 		})
-		*/
-		// /*
+		// */
+		/*
 		console.log('ajax success.');
 		let data = DATA;
 		data[1] = {};
@@ -65,7 +66,7 @@ export default class List extends Component {
 		});
 		console.log(arr,!!arr.length)
 		this.props.callback(!!arr.length);
-		// */
+		*/
 	}
 	reload (){
 		window.location.reload();
@@ -84,7 +85,7 @@ export default class List extends Component {
 			)
 		}else {
 			return (
-				<div>
+				<div className="ac">
 					{
 						this.state.data.map((v,i) => 
 							<div className="list" key={i}>

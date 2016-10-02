@@ -48,7 +48,7 @@ export default class All extends Component {
 		return (
 			<div className="content">
 				<Header />
-				<div className="all-con ac">
+				<div className="all-con">
 					{
 						this.state.list.map((v,i) => 
 							<List key={i} perpage="2" page={v} callback={this.changeBtn} />

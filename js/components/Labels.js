@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import { BASE, LABELS } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
+import List from '../components/List.js';
 
 
 export default class Labels extends Component {
@@ -12,7 +13,8 @@ export default class Labels extends Component {
 		this.state = {
 			loading: true,
 			error: null,
-			data: null
+			data: null,
+			label: null
 		}
 	}
 	componentDidMount (){
@@ -40,6 +42,11 @@ export default class Labels extends Component {
 	reload (){
 		window.location.reload();
 	}
+	label (label){
+		this.setState({
+			label: label
+		})
+	}
 	render (){
 		if (this.state.loading){
 			return (
@@ -52,16 +59,18 @@ export default class Labels extends Component {
 					<span className="reload f14" onClick={this.reload}>重新加载</span>
 				</div>
 			)
-		}else {
+		}else if (this.state.label == null){
 			return (
 				<div className="ac">
 					{
 						this.state.data.map((v,i) => 
-							<a key={i} className="tags-label" href="" style={{backgroundColor: '#'+v.color}}>{v.name}</a>
+							<a key={i} className="tags-label" href="javascript:;" onClick={this.label.bind(this,v.name)} style={{backgroundColor: '#'+v.color}}>{v.name}</a>
 						)
 					}
 				</div>
 			)
+		}else {
+			return <List perpage="10000" labels={this.state.label} />
 		}
 	}
 }
