@@ -31,7 +31,7 @@ export default class List extends Component {
 					loading: false,
 					data: result
 				});
-				this.props.callback(!!result.length);
+				this.props.callback && this.props.callback(!!result.length);
 			},
 			error: msg => {
 				this.setState({
