@@ -42,8 +42,8 @@ export default class Labels extends Component {
 	reload (){
 		window.location.reload();
 	}
-	label (label){
-		console.log(label);
+	label (label,e){
+		console.log(e);
 		this.setState({
 			label: label
 		})
