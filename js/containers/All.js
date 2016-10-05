@@ -43,7 +43,7 @@ export default class All extends Component {
 		});
 	}
 	render (){
-		var loadBeforeText = this.state.isNextPageView ? '加载更早的文章' : '没有更多了';
+		let loadBeforeText = this.state.isNextPageView ? '加载更早的文章' : '没有更多了';
 		// console.log(this.state.isNextPageView);
 		return (
 			<div className="content">
