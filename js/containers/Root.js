@@ -46,7 +46,7 @@ const routes = (
 		<Route path="all" getComponent={All} />
 		<Route path="archives" getComponent={Archives} />
 		<Route path="article" getComponent={Article} />
-		<Route path="tags" getComponent={Tags} />
+		<Route path="tags(/:tag)" getComponent={Tags} />
 		<Route path="about" getComponent={About} />
 	</Route>
 );

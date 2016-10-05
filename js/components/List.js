@@ -68,9 +68,6 @@ export default class List extends Component {
 		this.props.callback(!!arr.length);
 		*/
 	}
-	reload (){
-		window.location.reload();
-	}
 	render (){
 		if (this.state.loading){
 			return (
@@ -78,10 +75,7 @@ export default class List extends Component {
 			)
 		}else if (this.state.error !== null){
 			return (
-				<div>
-					<span className="lh18 block f16 mb15">阿哦出错了</span>
-					<span className="reload f14" onClick={this.reload}>重新加载</span>
-				</div>
+				<Reload />
 			)
 		}else {
 			return (

@@ -13,8 +13,7 @@ export default class Labels extends Component {
 		this.state = {
 			loading: true,
 			error: null,
-			data: null,
-			label: null
+			data: null
 		}
 	}
 	componentDidMount (){
@@ -39,14 +38,8 @@ export default class Labels extends Component {
 			data: LABELS
 		})
 	}
-	reload (){
-		window.location.reload();
-	}
-	label (label,e){
-		console.log(e);
-		this.setState({
-			label: label
-		})
+	label (label){
+		window.location.href = '#/tags/' + label;
 	}
 	render (){
 		if (this.state.loading){
@@ -55,13 +48,9 @@ export default class Labels extends Component {
 			)
 		}else if (this.state.error !== null){
 			return (
-				<div>
-					<span className="lh18 block f16 mb15">阿哦出错了</span>
-					<span className="reload f14" onClick={this.reload}>重新加载</span>
-				</div>
+				<Reload />
 			)
 		}else {
-			let listClass = (this.state.label ? 'block' : 'none') + ' mt30';
 			return (
 				<div className="ac">
 					{
@@ -69,9 +58,6 @@ export default class Labels extends Component {
 							<a key={i} className="tags-label" href="javascript:;" onClick={this.label.bind(this,v.name)} style={{backgroundColor: '#'+v.color}}>{v.name}</a>
 						)
 					}
-					<div className={listClass}>
-						<List perpage="10000" labels={this.state.label} />
-					</div>
 				</div>
 			)
 		}
