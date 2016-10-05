@@ -17,6 +17,14 @@ export default class Tags extends Component {
 			btnClass: 'load-before block f18 none'
 		}
 	}
+	componentWillMount (){
+		console.log(1);
+		this.setState({
+			list: [1],
+			isNextPageView: true,
+			btnClass: 'load-before block f18 none'
+		})
+	}
 	loadBefore (){
 		if (this.state.isNextPageView){
 			let list = this.state.list.slice(0);
