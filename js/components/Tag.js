@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { BASE, LABELS } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
+import SingleView from '../components/SingleView.js';
 
 
 export default class Tag extends Component {
@@ -12,12 +13,34 @@ export default class Tag extends Component {
 		super(props);
 		this.state = {
 			loading: true,
-			error: 11,
+			error: null,
 			data: null
 		}
 	}
 	componentDidMount (){
-		// 
+		// ajax
+		$.ajax({
+			url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
+			data: {
+				filter: this.props.filter || 'created',
+				per_page: this.props.perpage || 10,
+				page: this.props.page || 1,
+				labels: this.props.label || null
+			},
+			success: result => {
+				this.setState({
+					loading: false,
+					data: result
+				});
+				this.props.callback && this.props.callback(!!result.length);
+			},
+			error: msg => {
+				this.setState({
+					loading: false,
+					error: msg
+				})
+			}
+		})
 	}
 	render (){
 		if (this.state.loading){
@@ -28,6 +51,16 @@ export default class Tag extends Component {
 			return (
 				<Reload />
 			)
-		}else {}
+		}else {
+			return (
+				<div className="ac">
+					{
+						this.state.data.map((v,i) => 
+							<SingleView {...v} key={i} />
+						)
+					}
+				</div>
+			)
+		}
 	}
 }
