@@ -23,8 +23,7 @@ export default class List extends Component {
 			data: {
 				filter: this.props.filter || 'created',
 				per_page: this.props.perpage || 10,
-				page: this.props.page || 1,
-				labels: this.props.labels || null
+				page: this.props.page || 1
 			},
 			success: result => {
 				this.setState({
