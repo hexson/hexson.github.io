@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import marked from 'marked';
 import React, { Component } from 'react';
 
 
 import { BASE, DATA } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
+import SingleView from '../components/SingleView.js';
 
 
 export default class List extends Component {
@@ -81,23 +81,7 @@ export default class List extends Component {
 				<div className="ac">
 					{
 						this.state.data.map((v,i) => 
-							<div className="list" key={i}>
-								<h3 className="list-title mb15 f20">{v.title}</h3>
-								<div className="mb30">
-									<span className="list-time">{v.created_at.substr(0,10)}</span>
-									{
-										v.labels.map((val,ix) => 
-											<a key={ix} className="list-tag" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
-										)
-									}
-								</div>
-								<div className="list-view mb30 f16">
-									{
-										marked(v.body).substr(0,marked(v.body).match(/\n/)['index']).replace(/\<(\/p|p)\>/g,'')
-									}
-								</div>
-								<a className="f14" href={'#/article/'+v.color}>更多 +</a>
-							</div>
+							<SingleView {...v} key={i} />
 						)
 					}
 				</div>
