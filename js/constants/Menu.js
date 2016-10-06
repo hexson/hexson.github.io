@@ -4,10 +4,10 @@ export const MENU = [
 		path: 'all',
 		name: '全部'
 	},
-	{
-		path: 'archives',
-		name: '归档'
-	},
+	// {
+	// 	path: 'archives',
+	// 	name: '归档'
+	// },
 	{
 		path: 'tags',
 		name: '标签'
