@@ -10,6 +10,7 @@ export default class About extends Component {
 			<div className="content">
 				<Header />
 				<div className="mt30">
+					<b className="b f16 ac">一个喜欢穿插于现实和理想之间的打字员...</b>
 				</div>
 			</div>
 		)
