@@ -9,6 +9,8 @@ export default class About extends Component {
 		return (
 			<div className="content">
 				<Header />
+				<div className="mt30">
+				</div>
 			</div>
 		)
 	}
