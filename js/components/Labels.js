@@ -39,6 +39,7 @@ export default class Labels extends Component {
 		})
 	}
 	label (label){
+		this.props.callback && this.props.callback();
 		window.location.href = '#/tags/' + label;
 	}
 	render (){

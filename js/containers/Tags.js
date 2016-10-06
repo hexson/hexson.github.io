@@ -11,17 +11,21 @@ export default class Tags extends Component {
 		super(props);
 		this.loadBefore = this.loadBefore.bind(this);
 		this.changeBtn = this.changeBtn.bind(this);
+		this.initPage = this.initPage.bind(this);
+		this.initBtn = this.initBtn.bind(this);
 		this.state = {
 			list: [1],
 			isNextPageView: true,
 			btnClass: 'load-before block f18 none'
 		}
 	}
-	componentWillMount (){
-		console.log(1);
+	initPage (){
 		this.setState({
-			list: [1],
-			isNextPageView: true,
+			list: [1]
+		})
+	}
+	initBtn (){
+		this.setState({
 			btnClass: 'load-before block f18 none'
 		})
 	}
@@ -57,7 +61,7 @@ export default class Tags extends Component {
 				<div className="content">
 					<Header />
 					<div className="mt30">
-						<Labels />
+						<Labels callback={this.initPage} />
 					</div>
 				</div>
 			)
@@ -70,7 +74,7 @@ export default class Tags extends Component {
 						<p className="ac f18 mb30">- {this.props.params.tag} -</p>
 						{
 							this.state.list.map((v,i) => 
-								<Tag key={i} perpage="10" page={v} label={this.props.params.tag} callback={this.changeBtn} />
+								<Tag key={i} perpage="10" page={v} label={this.props.params.tag} callback={this.changeBtn} initCallback={this.initBtn} />
 							)
 						}
 						<button className={this.state.btnClass} onClick={this.loadBefore}>{loadBeforeText}</button>

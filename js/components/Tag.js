@@ -17,7 +17,13 @@ export default class Tag extends Component {
 			data: null
 		}
 	}
+	// componentWillMount (){
+	// 	// init
+	// 	this.props.initCallback && this.props.initCallback();
+	// }
 	componentDidMount (){
+		// init
+		this.props.initCallback && this.props.initCallback();
 		// ajax
 		$.ajax({
 			url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
