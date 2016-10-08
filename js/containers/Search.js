@@ -16,7 +16,8 @@ export default class Search extends Component {
 		this.state = {
 			list: [],
 			isNextPageView: true,
-			btnClass: 'load-before block f18 none'
+			btnClass: 'load-before block f18 none',
+			keyword: null
 		}
 	}
 	loadBefore (){
@@ -37,14 +38,16 @@ export default class Search extends Component {
 	}
 	search (e){
 		if (e.keyCode == 13){
+			let keyword = this.refs.keywordInput.value
 			this.setState({
-				list: [1]
+				list: [1],
+				keyword: keyword
 			});
-			window.location.href = '#/search/' + this.refs.keywordInput.value;
+			window.location.href = '#/search/' + keyword;
 		}
 	}
 	render (){
-		if (this.props.params.keyword === undefined){
+		if (this.state.keyword === null){
 			return (
 				<div className="content">
 					<Header />
@@ -64,7 +67,7 @@ export default class Search extends Component {
 						<input className="bbox f18" type="text" placeholder="~ 输入关键字搜索 ~" ref="keywordInput" onKeyUp={this.search} />
 					</div>
 					<div className="ac">
-						<Query callback={this.changeBtn} keyword={this.props.params.keyword} />
+						<Query callback={this.changeBtn} keyword={this.state.keyword} />
 						<button className={this.state.btnClass} onClick={this.loadBefore}>没有更多了</button>
 					</div>
 				</div>
