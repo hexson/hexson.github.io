@@ -20,6 +20,9 @@ export default class Search extends Component {
 			keyword: null
 		}
 	}
+	componentDidMount (){
+		this.refs.keywordInput.value = this.props.params.keyword || '';
+	}
 	loadBefore (){
 		this.setState({
 			btnClass: 'load-before block f18 load-before-animation'
@@ -39,15 +42,15 @@ export default class Search extends Component {
 	search (e){
 		if (e.keyCode == 13){
 			let keyword = this.refs.keywordInput.value
-			this.setState({
-				list: [1],
-				keyword: keyword
-			});
+			// this.setState({
+			// 	list: [1],
+			// 	keyword: keyword
+			// });
 			window.location.href = '#/search/' + keyword;
 		}
 	}
 	render (){
-		if (this.state.keyword === null){
+		if (this.props.params.keyword === undefined){
 			return (
 				<div className="content">
 					<Header />
