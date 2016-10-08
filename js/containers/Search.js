@@ -16,8 +16,7 @@ export default class Search extends Component {
 		this.state = {
 			list: [],
 			isNextPageView: true,
-			btnClass: 'load-before block f18 none',
-			keyword: null
+			btnClass: 'load-before block f18 none'
 		}
 	}
 	loadBefore (){
@@ -39,13 +38,12 @@ export default class Search extends Component {
 	search (e){
 		if (e.keyCode == 13){
 			this.setState({
-				list: [1],
-				keyword: this.refs.keywordInput.value
+				list: [1]
 			});
+			window.location.href = '#/search/' + this.refs.keywordInput.value;
 		}
 	}
 	render (){
-		let loadBeforeText = this.state.isNextPageView ? '加载更早的文章' : '没有更多了';
 		return (
 			<div className="content">
 				<Header />
@@ -56,10 +54,10 @@ export default class Search extends Component {
 					<div className="ac">
 						{
 							this.state.list.map((v,i) => 
-								<Query key={i} callback={this.changeBtn} promise={$.getJSON(`https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + this.state.keyword)} />
+								<Query key={i} callback={this.changeBtn} keyword={this.props.params.keyword} />
 							)
 						}
-						<button className={this.state.btnClass} onClick={this.loadBefore}>{loadBeforeText}</button>
+						<button className={this.state.btnClass} onClick={this.loadBefore}>没有更多了</button>
 					</div>
 				</div>
 			</div>
