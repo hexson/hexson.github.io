@@ -24,9 +24,9 @@ export default class List extends Component {
 				success: result => {
 					this.setState({
 						loading: false,
-						data: result.items || result
+						data: result.items
 					});
-					this.props.callback && this.props.callback(!!result.length);
+					this.props.callback && this.props.callback();
 				},
 				error: msg => {
 					this.setState({
