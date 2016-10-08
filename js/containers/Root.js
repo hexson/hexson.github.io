@@ -38,6 +38,11 @@ var About = (location, cb) => {
 		cb(null, require('../containers/About.js').default)
 	}, 'about')
 };
+var Search = (location, cb) => {
+	require.ensure([], require => {
+		cb(null, require('../containers/Search.js').default)
+	}, 'about')
+};
 
 
 const routes = (
@@ -48,6 +53,7 @@ const routes = (
 		<Route path="article" getComponent={Article} />
 		<Route path="tags(/:tag)" getComponent={Tags} />
 		<Route path="about" getComponent={About} />
+		<Route path="search" getComponent={Search} />
 	</Route>
 );
 
