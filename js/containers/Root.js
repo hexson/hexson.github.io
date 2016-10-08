@@ -53,7 +53,7 @@ const routes = (
 		<Route path="article" getComponent={Article} />
 		<Route path="tags(/:tag)" getComponent={Tags} />
 		<Route path="about" getComponent={About} />
-		<Route path="search" getComponent={Search} />
+		<Route path="search(/:keyword)" getComponent={Search} />
 	</Route>
 );
 
