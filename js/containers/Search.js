@@ -69,7 +69,7 @@ export default class Search extends Component {
 						<input className="bbox f18" type="text" placeholder="~ 输入关键字搜索 ~" ref="keywordInput" onKeyUp={this.search} />
 					</div>
 					<div className="ac">
-						<Query callback={this.changeBtn} keyword={this.state.keyword} />
+						<Query callback={this.changeBtn} keyword={this.props.params.keyword} />
 						<button className={this.state.btnClass} onClick={this.loadBefore}>没有更多了</button>
 					</div>
 				</div>
