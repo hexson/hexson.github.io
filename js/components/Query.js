@@ -18,6 +18,7 @@ export default class List extends Component {
 	}
 	componentDidMount (){
 		let keyword = this.props.keyword;
+		console.log(keyword);
 		if (keyword !== null){
 			$.ajax({
 				url: `https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + keyword,

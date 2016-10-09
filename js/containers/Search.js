@@ -42,10 +42,6 @@ export default class Search extends Component {
 	search (e){
 		if (e.keyCode == 13){
 			let keyword = this.refs.keywordInput.value
-			// this.setState({
-			// 	list: [1],
-			// 	keyword: keyword
-			// });
 			window.location.href = '#/search/' + keyword;
 		}
 	}
