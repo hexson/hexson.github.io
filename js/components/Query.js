@@ -20,6 +20,7 @@ export default class List extends Component {
 		let keyword = this.props.keyword;
 		console.log(keyword);
 		if (keyword !== null){
+			this.props.valueCallback && this.props.valueCallback();
 			$.ajax({
 				url: `https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + keyword,
 				success: result => {

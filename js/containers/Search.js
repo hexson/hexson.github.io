@@ -13,6 +13,7 @@ export default class Search extends Component {
 		this.loadBefore = this.loadBefore.bind(this);
 		this.changeBtn = this.changeBtn.bind(this);
 		this.search = this.search.bind(this);
+		this.valueCallback = this.valueCallback.bind(this);
 		this.state = {
 			list: [],
 			isNextPageView: true,
@@ -20,7 +21,7 @@ export default class Search extends Component {
 			keyword: null
 		}
 	}
-	componentDidMount (){
+	valueCallback (){
 		this.refs.keywordInput.value = this.props.params.keyword || '';
 	}
 	loadBefore (){
@@ -69,7 +70,7 @@ export default class Search extends Component {
 						<input className="bbox f18" type="text" placeholder="~ 输入关键字搜索 ~" ref="keywordInput" onKeyUp={this.search} />
 					</div>
 					<div className="ac">
-						<Query callback={this.changeBtn} keyword={this.props.params.keyword} />
+						<Query callback={this.changeBtn} keyword={this.props.params.keyword} valueCallback={this.valueCallback} />
 						<button className={this.state.btnClass} onClick={this.loadBefore}>没有更多了</button>
 					</div>
 				</div>
