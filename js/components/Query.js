@@ -24,7 +24,7 @@ export default class List extends Component {
 		let keyword = this.props.keyword;
 		// console.log(keyword);
 		if (keyword !== undefined && typeof keyword !== 'undefined'){
-			this.refs.keywordInput.value = keyword;
+			// this.refs.keywordInput.value = keyword;
 			this.ajax(keyword);
 		}
 	}
