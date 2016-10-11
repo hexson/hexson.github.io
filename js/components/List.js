@@ -26,6 +26,7 @@ export default class List extends Component {
 				page: this.props.page || 1
 			},
 			success: result => {
+				window.issues = result;
 				this.setState({
 					loading: false,
 					data: result

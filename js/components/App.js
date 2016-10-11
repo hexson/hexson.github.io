@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { BASE } from '../constants/Base.js';
 
+
+import Issues from '../components/Issues.js';
+
+
 export default class App extends Component {
 	componentWillMount (){
 		this.baiduStatistics();
+		Issues.prototype.componentDidMount(this.props);
 	}
 	baiduStatistics (){
 		if (location.host.indexOf('hexson') >= 0){
