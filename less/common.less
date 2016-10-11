@@ -292,7 +292,7 @@ del {
 	};
 }
 .list-view {
-	text-indent: 2.6rem;
+	text-indent: 2.8rem;
 	text-align: justify;
 }
 
@@ -370,4 +370,29 @@ del {
 			-moz-box-shadow: 0 0 @blur @spread rgba(0,0,0,@alpha) inset;
 		};
 	};
+}
+
+.views-h(@n) when (@n > 0){
+	.views-h((@n - 1));
+	.views h@{n}{
+		font-size: (22 - @n) * .1rem;
+		padding: .5rem 0;
+		margin-bottom: 1.5rem;
+	}
+}
+.views-h(6);
+.views p {
+	font-size: 1.6rem;
+	line-height: 3rem;
+	margin-bottom: 1.5rem;
+}
+.views ul {
+	margin-bottom: 1.5rem;
+}
+.views li {
+	font-size: 1.4rem;
+	line-height: 3rem;
+	display: list-item;
+	list-style: circle inside;
+	padding: 0;
 }
