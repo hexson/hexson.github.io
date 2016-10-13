@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import { BASE, DATA } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
+import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
 
 

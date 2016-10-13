@@ -5,7 +5,7 @@ import { BASE } from '../constants/Base.js';
 
 
 export default class Issues {
-	componentDidMount (props){
+	componentDidMount (that){
 		$.ajax({
 			url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
 			data: {
@@ -13,12 +13,16 @@ export default class Issues {
 				per_page: 10000
 			},
 			success: result => {
-				// props.issues = result;
-				console.log(props);
+				that.setState({
+					issues: result
+				});
 				window.issues = result;
 			},
 			error: msg => {
 				console.log('warning: get issues error!');
+				that.setState({
+					error: msg
+				});
 			}
 		})
 	}

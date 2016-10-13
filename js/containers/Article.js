@@ -3,15 +3,45 @@ import React, { Component } from 'react';
 
 
 import Header from '../components/Header.js';
+import Loading from '../components/Loading.js';
+import Reload from '../components/Reload.js';
 import { BASE, DATA } from '../constants/Base.js';
+import Issues from '../components/Issues.js';
 
 
 export default class Article extends Component {
+	constructor (props){
+		super(props);
+		this.state = {
+			issues: null,
+			error: 'null'
+		}
+	}
 	componentDidMount (){
-		this.refs.content.innerHTML = marked(DATA[0].body);
+		if (window.issues){
+			this.setState({
+				issues: window.issues
+			});
+		}else {
+			Issues.prototype.componentDidMount(this);
+		}
+		// this.refs.content.innerHTML = marked(DATA[0].body);
 	}
 	render (){
-		console.log(this.props);
+		console.log(this.state);
+		if (this.state.issues === null){
+			return (
+				<div className="article-pt80">
+					<Loading />
+				</div>
+			)
+		}else if (this.state.error !== null){
+			return (
+			<div className="article-pt80">
+					<Reload />
+				</div>
+			)
+		}
 		return (
 			<div className="content">
 				<Header />

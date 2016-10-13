@@ -6,9 +6,15 @@ import Issues from '../components/Issues.js';
 
 
 export default class App extends Component {
+	// constructor (props){
+	// 	super(props);
+	// 	this.state = {
+	// 		issues: null
+	// 	}
+	// }
 	componentWillMount (){
 		this.baiduStatistics();
-		Issues.prototype.componentDidMount(this.props);
+		// Issues.prototype.componentDidMount(this);
 	}
 	baiduStatistics (){
 		if (location.host.indexOf('hexson') >= 0){
