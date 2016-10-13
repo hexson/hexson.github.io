@@ -65,7 +65,7 @@ export default class Article extends Component {
 								)
 							}
 						</div>
-						<div className="list-view mb30 f16 views" ref="content">{ marked(data.body) }</div>
+						<div className="list-view mb30 f16 views" ref="content"></div>
 					</div>
 				</div>
 			)
