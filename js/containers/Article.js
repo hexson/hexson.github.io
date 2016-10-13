@@ -37,7 +37,7 @@ export default class Article extends Component {
 			)
 		}else if (this.state.error !== null){
 			return (
-			<div className="article-pt80">
+				<div className="article-pt80">
 					<Reload />
 				</div>
 			)
