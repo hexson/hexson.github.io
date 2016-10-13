@@ -14,7 +14,7 @@ export default class Article extends Component {
 		super(props);
 		this.state = {
 			issues: null,
-			error: 'null'
+			error: null
 		}
 	}
 	componentDidMount (){
@@ -28,7 +28,7 @@ export default class Article extends Component {
 		// this.refs.content.innerHTML = marked(DATA[0].body);
 	}
 	render (){
-		console.log(this.state);
+		console.log(this.state,this.props);
 		if (this.state.issues === null){
 			return (
 				<div className="article-pt80">
@@ -41,25 +41,34 @@ export default class Article extends Component {
 					<Reload />
 				</div>
 			)
-		}
-		return (
-			<div className="content">
-				<Header />
-				<div className="list ac mt20">
-					<h3 className="list-title mb15">
-						<a className="black f20" href="javascript:;">{DATA[0].title}</a>
-					</h3>
-					<div className="mb30">
-						<span className="list-time">{DATA[0].created_at.substr(0,10)}</span>
-						{
-							DATA[0].labels.map((val,ix) => 
-								<a key={ix} className="list-tag" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
-							)
-						}
+		}else {
+			var data;
+			for (let i = 0; i < this.state.issues.length; i++){
+				let v = this.state.issues[i];
+				if (v.number == this.props.params.id){
+					data = v;
+					break;
+				}
+			}
+			return (
+				<div className="content">
+					<Header />
+					<div className="list ac mt20">
+						<h3 className="list-title mb15">
+							<a className="black f20" href="javascript:;">{data.title}</a>
+						</h3>
+						<div className="mb30">
+							<span className="list-time">{data.created_at.substr(0,10)}</span>
+							{
+								data.labels.map((val,ix) => 
+									<a key={ix} className="list-tag" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
+								)
+							}
+						</div>
+						<div className="list-view mb30 f16 views" ref="content">{ marked(data.body) }</div>
 					</div>
-					<div className="list-view mb30 f16 views" ref="content"></div>
 				</div>
-			</div>
-		)
+			)
+		}
 	}
 }
