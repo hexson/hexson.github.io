@@ -26,7 +26,10 @@ export default class Article extends Component {
 			Issues.prototype.componentDidMount(this);
 		}
 		// this.refs.content.innerHTML = marked(this.refs.content.body);
-		console.log(this.refs.content)
+		// console.log(this.refs.content)
+	}
+	componentDidUpdate (){
+		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'))
 	}
 	render (){
 		if (this.state.issues === null){
