@@ -25,10 +25,10 @@ export default class Article extends Component {
 		}else {
 			Issues.prototype.componentDidMount(this);
 		}
-		// this.refs.content.innerHTML = marked(DATA[0].body);
+		// this.refs.content.innerHTML = marked(this.refs.content.body);
+		console.log(this.refs.content)
 	}
 	render (){
-		console.log(this.state,this.props);
 		if (this.state.issues === null){
 			return (
 				<div className="article-pt80">
@@ -65,7 +65,7 @@ export default class Article extends Component {
 								)
 							}
 						</div>
-						<div className="list-view mb30 f16 views" ref="content"></div>
+						<div className="list-view mb30 f16 views" ref="content" data-body={data.body}></div>
 					</div>
 				</div>
 			)
