@@ -28,7 +28,16 @@ export default class Article extends Component {
 		// this.refs.content.innerHTML = marked(this.refs.content.body);
 	}
 	componentDidUpdate (){
-		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'))
+		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
+		window.duoshuoQuery = { short_name: BASE.master };
+		(function(){
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';
+			ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
 	}
 	render (){
 		if (this.state.issues === null){
@@ -67,7 +76,10 @@ export default class Article extends Component {
 								)
 							}
 						</div>
-						<div className="list-view mb30 f16 views" ref="content" data-body={data.body}></div>
+						<div className="list-view f16 views" ref="content" data-body={data.body}></div>
+					</div>
+					<div>
+						<div className="ds-thread mb10" data-thread-key={data.number} data-title={data.title} data-url={location.href}></div>
 					</div>
 				</div>
 			)
