@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
-import { BASE, DATA } from '../constants/Base.js';
+import { BASE } from '../constants/Base.js';
 import Issues from '../components/Issues.js';
 
 
