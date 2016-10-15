@@ -26,11 +26,11 @@ export default class Article extends Component {
 			Issues.prototype.componentDidMount(this);
 		}
 		// this.refs.content.innerHTML = marked(this.refs.content.body);
-		if (this.refs.ds) this.duoshuo();
+		if (this.refs.ds) window.DUOSHUO.EmbedThread(this.refs.ds);
 	}
 	componentDidUpdate (){
 		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
-		this.duoshuo();
+		window.DUOSHUO.EmbedThread(this.refs.ds);
 	}
 	duoshuo (){
 		window.duoshuoQuery = { short_name: BASE.master };
