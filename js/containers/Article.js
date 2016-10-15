@@ -32,17 +32,6 @@ export default class Article extends Component {
 		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
 		window.DUOSHUO.EmbedThread(this.refs.ds);
 	}
-	duoshuo (){
-		window.duoshuoQuery = { short_name: BASE.master };
-		(function(){
-			var ds = document.createElement('script');
-			ds.type = 'text/javascript';
-			ds.async = true;
-			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-			ds.charset = 'UTF-8';
-			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-		})();
-	}
 	render (){
 		if (this.state.issues === null){
 			return (
