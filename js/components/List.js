@@ -19,20 +19,18 @@ export default class List extends Component {
 	}
 	componentDidMount (){
 		// /*
-		if (window.issues){
-			if (this.props.page == 1 && window.issues.length == this.props.perpage){
-				this.setState({
-					loading: false,
-					data: window.issues
-				});
-				this.props.callback && this.props.callback(true);
-			}else {
-				this.setState({
-					loading: false,
-					data: []
-				});
-				this.props.callback && this.props.callback(false);
-			}
+		if (window.issues && this.props.page == 1){
+			this.setState({
+				loading: false,
+				data: window.issues
+			});
+			this.props.callback && this.props.callback(true);
+		}else if (window.issues && window.issues.length < this.props.perpage){
+			this.setState({
+				loading: false,
+				data: []
+			});
+			this.props.callback && this.props.callback(false);
 		}else {
 			$.ajax({
 				url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
