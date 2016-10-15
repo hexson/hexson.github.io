@@ -51,7 +51,7 @@ export default class All extends Component {
 				<div className="all-con">
 					{
 						this.state.list.map((v,i) => 
-							<List key={i} perpage="10" page={v} callback={this.changeBtn} />
+							<List key={i} perpage="10000" page={v} callback={this.changeBtn} />
 						)
 					}
 					<button className={this.state.btnClass} onClick={this.loadBefore}>{loadBeforeText}</button>
