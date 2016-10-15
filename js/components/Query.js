@@ -82,15 +82,7 @@ export default class List extends Component {
 		}
 	}
 	render (){
-		/*if (this.state.loading){
-			return (
-				<Loading />
-			)
-		}else if (this.state.error !== null){
-			return (
-				<Reload />
-			)
-		}else */if (this.props.keyword === undefined){
+		if (this.props.keyword === undefined){
 			return (
 				<div className="mt30">
 					<div className="search">
