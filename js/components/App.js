@@ -14,7 +14,7 @@ export default class App extends Component {
 	// }
 	componentWillMount (){
 		this.baiduStatistics();
-		this.duoshuoComment();
+		this.duoshuoComments();
 		// Issues.prototype.componentDidMount(this);
 	}
 	baiduStatistics (){
@@ -28,7 +28,7 @@ export default class App extends Component {
 			})();
 		}
 	}
-	duoshuoComment (){
+	duoshuoComments (){
 		window.duoshuoQuery = { short_name: BASE['duoshuo'] };
 		(function(){
 			var ds = document.createElement('script');
