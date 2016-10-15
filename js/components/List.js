@@ -42,32 +42,6 @@ export default class List extends Component {
 			}
 		})
 		// */
-		/*
-		console.log('ajax success.');
-		let data = DATA;
-		data[1] = {};
-		data[1].title = data[0].title + 2;
-		data[1].labels = data[0].labels;
-		data[1].created_at = data[0].created_at;
-		data[1].body = data[0].body;
-		data[2] = {};
-		data[2].title = data[0].title + 3;
-		data[2].labels = data[0].labels;
-		data[2].created_at = data[0].created_at;
-		data[2].body = data[0].body;
-		data[3] = {};
-		data[3].title = data[0].title + 4;
-		data[3].labels = data[0].labels;
-		data[3].created_at = data[0].created_at;
-		data[3].body = data[0].body;
-		let arr = this.props.page==1 ? data.slice(0,2) : this.props.page==2 ? data.slice(2) : [];
-		this.setState({
-			loading: false,
-			data: arr
-		});
-		console.log(arr,!!arr.length)
-		this.props.callback(!!arr.length);
-		*/
 	}
 	render (){
 		if (this.state.loading){
