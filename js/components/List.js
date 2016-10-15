@@ -22,9 +22,9 @@ export default class List extends Component {
 		if (window.issues){
 			this.setState({
 				loading: false,
-				data: result
+				data: window.issues
 			});
-			this.props.callback && this.props.callback(!!result.length);
+			this.props.callback && this.props.callback(!!window.issues.length);
 		}else {
 			$.ajax({
 				url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
