@@ -19,28 +19,36 @@ export default class List extends Component {
 	}
 	componentDidMount (){
 		// /*
-		$.ajax({
-			url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
-			data: {
-				filter: this.props.filter || 'created',
-				per_page: this.props.perpage || 10,
-				page: this.props.page || 1
-			},
-			success: result => {
-				window.issues = result;
-				this.setState({
-					loading: false,
-					data: result
-				});
-				this.props.callback && this.props.callback(!!result.length);
-			},
-			error: msg => {
-				this.setState({
-					loading: false,
-					error: msg
-				})
-			}
-		})
+		if (window.issues){
+			this.setState({
+				loading: false,
+				data: result
+			});
+			this.props.callback && this.props.callback(!!result.length);
+		}else {
+			$.ajax({
+				url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
+				data: {
+					filter: this.props.filter || 'created',
+					per_page: this.props.perpage || 10,
+					page: this.props.page || 1
+				},
+				success: result => {
+					window.issues = result;
+					this.setState({
+						loading: false,
+						data: result
+					});
+					this.props.callback && this.props.callback(!!result.length);
+				},
+				error: msg => {
+					this.setState({
+						loading: false,
+						error: msg
+					})
+				}
+			})
+		}
 		// */
 	}
 	render (){
