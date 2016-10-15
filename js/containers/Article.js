@@ -26,6 +26,13 @@ export default class Article extends Component {
 			Issues.prototype.componentDidMount(this);
 		}
 		// this.refs.content.innerHTML = marked(this.refs.content.body);
+		if (this.refs.ds) this.duoshuo();
+	}
+	componentDidUpdate (){
+		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
+		this.duoshuo();
+	}
+	duoshuo (){
 		window.duoshuoQuery = { short_name: BASE.master };
 		(function(){
 			var ds = document.createElement('script');
@@ -35,9 +42,6 @@ export default class Article extends Component {
 			ds.charset = 'UTF-8';
 			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
 		})();
-	}
-	componentDidUpdate (){
-		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
 	}
 	render (){
 		if (this.state.issues === null){
