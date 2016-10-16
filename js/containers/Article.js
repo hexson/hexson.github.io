@@ -62,10 +62,10 @@ export default class Article extends Component {
 							<a className="black f20" href="javascript:;">{data.title}</a>
 						</h3>
 						<div className="mb30">
-							<span className="list-time">{data.created_at.substr(0,10)}</span>
+							<span className="list-time f12">{data.created_at.substr(0,10)}</span>
 							{
 								data.labels.map((val,ix) => 
-									<a key={ix} className="list-tag" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
+									<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
 								)
 							}
 						</div>

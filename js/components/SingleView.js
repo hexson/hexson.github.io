@@ -11,10 +11,10 @@ export default class SingleView extends Component {
 					<a className="black f20" href={'#/article/'+v.number}>{v.title}</a>
 				</h3>
 				<div className="mb30">
-					<span className="list-time">{v.created_at.substr(0,10)}</span>
+					<span className="list-time f12">{v.created_at.substr(0,10)}</span>
 					{
 						v.labels.map((val,ix) => 
-							<a key={ix} className="list-tag" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
+							<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
 						)
 					}
 				</div>

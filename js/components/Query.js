@@ -8,7 +8,7 @@ import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
 
 
-export default class List extends Component {
+export default class Query extends Component {
 	constructor (props){
 		super(props);
 		this.loadBefore = this.loadBefore.bind(this);
