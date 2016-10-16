@@ -11,7 +11,7 @@ class Nav extends Component {
 				{
 					MENU.map((v,i) => 
 						<li key={i}>
-							<Link className="f14" to={v.path}>{v.name}</Link>
+							<Link className="f14" to={v.path} activeStyle={{color: '#222222'}}>{v.name}</Link>
 						</li>
 					)
 				}
