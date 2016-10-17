@@ -405,6 +405,32 @@ del {
 	margin: 0 auto;
 	max-width: 100%;
 }
+.views code {
+	background-color: rgba(0,0,0,0.04);
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	border-radius: 3px;
+	padding: 0.2rem 0;
+	font-size: 1.4rem;
+	&:before {
+		letter-spacing: -0.2em;
+		content: "\00a0";
+	};
+	&:after {
+		letter-spacing: -0.2em;
+		content: "\00a0";
+	};
+}
+.views blockquote {
+	padding: 0 1rem;
+	border-left: 0.25rem solid #dddddd;
+	margin: 0;
+	margin-bottom: 1.5rem;
+}
+.views blockquote p {
+	text-indent: 0rem;
+	color: #777777;
+	line-height: 2rem;
+}
 
 .article-pt80 {
 	padding-top: 8rem;
