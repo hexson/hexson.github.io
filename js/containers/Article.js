@@ -1,5 +1,7 @@
 import marked from 'marked';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import NProgress from 'nprogress';
 
 
 import Header from '../components/Header.js';
@@ -9,13 +11,16 @@ import { BASE } from '../constants/Base.js';
 import Issues from '../components/Issues.js';
 
 
-export default class Article extends Component {
+class Article extends Component {
 	constructor (props){
 		super(props);
 		this.state = {
 			issues: null,
 			error: null
 		}
+	}
+	componentWillMount (){
+		window.scrollTo(0, 0);
 	}
 	componentDidMount (){
 		if (window.issues){
@@ -27,6 +32,11 @@ export default class Article extends Component {
 		}
 		// this.refs.content.innerHTML = marked(this.refs.content.body);
 		if (this.refs.ds) window.DUOSHUO.EmbedThread(this.refs.ds);
+		NProgress.done();
+		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
+	}
+	routerWillLeave (){
+		NProgress.start();
 	}
 	componentDidUpdate (){
 		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
@@ -78,4 +88,6 @@ export default class Article extends Component {
 			)
 		}
 	}
-}
+};
+
+export default withRouter(Article)

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import NProgress from 'nprogress';
 
 
 import Header from '../components/Header.js';
@@ -6,7 +8,7 @@ import Labels from '../components/Labels.js';
 import Tag from '../components/Tag.js';
 
 
-export default class Tags extends Component {
+class Tags extends Component {
 	constructor (props){
 		super(props);
 		this.loadBefore = this.loadBefore.bind(this);
@@ -18,6 +20,13 @@ export default class Tags extends Component {
 			isNextPageView: true,
 			btnClass: 'load-before block f18 none'
 		}
+	}
+	componentDidMount (){
+		NProgress.done();
+		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
+	}
+	routerWillLeave (){
+		NProgress.start();
 	}
 	initPage (){
 		this.setState({
@@ -83,4 +92,6 @@ export default class Tags extends Component {
 			)
 		}
 	}
-}
+};
+
+export default withRouter(Tags)

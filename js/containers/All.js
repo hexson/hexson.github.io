@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import NProgress from 'nprogress';
 
 
 import Header from '../components/Header.js';
 import List from '../components/List.js';
 
 
-export default class All extends Component {
+class All extends Component {
 	constructor (props){
 		super(props);
 		this.loadBefore = this.loadBefore.bind(this);
@@ -15,6 +17,13 @@ export default class All extends Component {
 			isNextPageView: true,
 			btnClass: 'load-before block f18 none'
 		}
+	}
+	componentDidMount (){
+		NProgress.done();
+		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
+	}
+	routerWillLeave (){
+		NProgress.start();
 	}
 	loadBefore (){
 		if (this.state.isNextPageView){
@@ -59,4 +68,6 @@ export default class All extends Component {
 			</div>
 		)
 	}
-}
+};
+
+export default withRouter(All)

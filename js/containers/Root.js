@@ -5,6 +5,7 @@ import { createHashHistory } from 'react-router/node_modules/history';
 import App from '../components/App.js';
 
 import '../../css/common.css';
+import '../../css/nprogress.css';
 
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 

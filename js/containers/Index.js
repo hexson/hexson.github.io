@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import NProgress from 'nprogress';
+
 
 import { BASE } from '../constants/Base.js';
 import Nav from '../components/Nav.js';
 
 
 
-export default class Index extends Component {
+class Index extends Component {
+	componentWillMount (){
+		NProgress.configure({ showSpinner: false });
+		NProgress.start();
+	}
+	componentDidMount (){
+		NProgress.done();
+		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
+	}
+	routerWillLeave (){
+		NProgress.start();
+	}
 	render (){
 		return (
 			<div>
@@ -17,4 +31,6 @@ export default class Index extends Component {
 			</div>
 		)
 	}
-}
+};
+
+export default withRouter(Index)

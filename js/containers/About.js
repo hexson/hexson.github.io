@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import NProgress from 'nprogress';
 
 
 import Header from '../components/Header.js';
 
 
-export default class About extends Component {
+class About extends Component {
+	componentDidMount (){
+		NProgress.done();
+		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
+	}
+	routerWillLeave (){
+		NProgress.start();
+	}
 	render (){
 		return (
 			<div className="content">
@@ -15,4 +24,6 @@ export default class About extends Component {
 			</div>
 		)
 	}
-}
+};
+
+export default withRouter(About)
