@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 
 
 export default class SingleView extends Component {
+	componentDidMount (){
+		let v = this.props;
+		let html = marked(v.body).substr(0,marked(v.body).match(/\n/)['index']);
+		this.refs.preview.innerHTML = html;
+		if (html.indexOf('<img src') >= 0) this.refs.preview.style.textIndent = '0px';
+	}
 	render (){
 		let v = this.props;
 		return (
@@ -18,11 +24,7 @@ export default class SingleView extends Component {
 						)
 					}
 				</div>
-				<div className="list-view mb30 f16">
-					{
-						marked(v.body).substr(0,marked(v.body).match(/\n/)['index']).replace(/\<(\/p|p)\>/g,'')
-					}
-				</div>
+				<div className="list-view mb30 views" ref="preview"></div>
 				<a className="f14" href={'#/article/'+v.number}>更多 +</a>
 			</div>
 		)
