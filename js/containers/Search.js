@@ -8,6 +8,9 @@ import Query from '../components/Query.js';
 
 
 class Search extends Component {
+	componentWillMount (){
+		NProgress.start();
+	}
 	componentDidMount (){
 		NProgress.done();
 		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);

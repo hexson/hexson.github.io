@@ -21,6 +21,9 @@ class Tags extends Component {
 			btnClass: 'load-before block f18 none'
 		}
 	}
+	componentWillMount (){
+		NProgress.start();
+	}
 	componentDidMount (){
 		NProgress.done();
 		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);

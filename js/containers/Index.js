@@ -10,7 +10,6 @@ import Nav from '../components/Nav.js';
 
 class Index extends Component {
 	componentWillMount (){
-		NProgress.configure({ showSpinner: false });
 		NProgress.start();
 	}
 	componentDidMount (){

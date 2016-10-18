@@ -7,6 +7,9 @@ import Header from '../components/Header.js';
 
 
 class About extends Component {
+	componentWillMount (){
+		NProgress.start();
+	}
 	componentDidMount (){
 		NProgress.done();
 		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);

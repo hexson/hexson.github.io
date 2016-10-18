@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NProgress from 'nprogress';
 
 
 import { BASE } from '../constants/Base.js';
@@ -6,6 +7,7 @@ import { BASE } from '../constants/Base.js';
 
 export default class App extends Component {
 	componentWillMount (){
+		NProgress.configure({ showSpinner: false });
 		this.baiduStatistics();
 		this.duoshuoComments();
 	}
