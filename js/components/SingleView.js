@@ -25,7 +25,7 @@ export default class SingleView extends Component {
 					}
 				</div>
 				<div className="list-view mb30 views" ref="preview"></div>
-				<a className="f14" href={'#/article/'+v.number}>更多 +</a>
+				<a className="f14 gray" href={'#/article/'+v.number}>查看更多 +</a>
 			</div>
 		)
 	}

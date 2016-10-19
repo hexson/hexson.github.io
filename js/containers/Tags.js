@@ -28,6 +28,9 @@ class Tags extends Component {
 		NProgress.done();
 		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
 	}
+	componentDidUpdate (){
+		NProgress.done();
+	}
 	routerWillLeave (){
 		NProgress.start();
 	}
