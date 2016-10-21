@@ -6,6 +6,7 @@ import App from '../components/App.js';
 
 import '../../css/common.css';
 import '../../css/nprogress.css';
+import '../../css/highlight.css';
 
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 

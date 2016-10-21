@@ -2,6 +2,8 @@ import marked from 'marked';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import NProgress from 'nprogress';
+import $ from 'jquery';
+import hljs from 'highlight.js';
 
 
 import Header from '../components/Header.js';
@@ -41,6 +43,9 @@ class Article extends Component {
 	}
 	componentDidUpdate (){
 		this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
+		$('pre code').each(function(i,v){
+			hljs.highlightBlock(v);
+		});
 		window.DUOSHUO.EmbedThread(this.refs.ds);
 	}
 	render (){
