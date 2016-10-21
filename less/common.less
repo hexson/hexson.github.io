@@ -427,6 +427,14 @@ del {
 		content: "\00a0";
 	};
 }
+.views pre code {
+	padding: 1.2rem;
+	border-radius: 3px;
+	.bbox();
+	&:before,&:after {
+		content: '';
+	}
+}
 .views blockquote {
 	padding: 0 1rem;
 	border-left: 0.25rem solid #dddddd;
