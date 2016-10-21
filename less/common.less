@@ -428,13 +428,21 @@ del {
 		content: "\00a0";
 	};
 }
+.views pre {
+	font-size: 1.6rem;
+	margin: 1.5rem 0;
+}
 .views pre code {
 	padding: 1.2rem;
-	border-radius: 3px;
+	border-radius: 6px;
+	font-size: 87.5%;
 	.bbox();
 	&:before,&:after {
 		content: '';
 	}
+}
+.views pre code span {
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 .views blockquote {
 	padding: 0 1rem;
