@@ -2,7 +2,7 @@ import marked from 'marked';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import NProgress from 'nprogress';
-import $ from 'jquery';
+// import $ from 'jquery';
 // import hljs from 'highlight.js';
 
 
