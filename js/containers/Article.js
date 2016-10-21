@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import NProgress from 'nprogress';
 import $ from 'jquery';
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 
 
 import Header from '../components/Header.js';
