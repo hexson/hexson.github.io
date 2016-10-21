@@ -437,9 +437,12 @@ del {
 	border-radius: 6px;
 	font-size: 87.5%;
 	.bbox();
-	&:before,&:after {
+	&:before {
 		content: '';
-	}
+	};
+	&:after {
+		content: '';
+	};
 }
 .views pre code span {
 	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
