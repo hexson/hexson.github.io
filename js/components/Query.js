@@ -32,23 +32,38 @@ export default class Query extends Component {
 		this.refs.keywordInput.value = this.props.keyword || '';
 	}
 	ajax (keyword,callback){
-		$.ajax({
-			url: `https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + keyword,
-			success: result => {
-				this.setState({
-					loading: false,
-					data: result.items,
-					btnClass: 'load-before block f18'
-				});
-				callback && callback();
-			},
-			error: msg => {
-				this.setState({
-					loading: false,
-					error: msg
-				})
+		if (window.issues){
+			let data = [];
+			for (let i = 0; i < window.issues.length; i++){
+				if (window.issues[i].title.indexOf(keyword) >= 0 || window.issues[i].body.indexOf(keyword) >= 0){
+					data.push(window.issues[i]);
+				}
 			}
-		})
+			this.setState({
+				loading: false,
+				data: data,
+				btnClass: 'load-before block f18'
+			});
+			callback && callback();
+		}else {
+			$.ajax({
+				url: `https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + keyword,
+				success: result => {
+					this.setState({
+						loading: false,
+						data: result.items,
+						btnClass: 'load-before block f18'
+					});
+					callback && callback();
+				},
+				error: msg => {
+					this.setState({
+						loading: false,
+						error: msg
+					})
+				}
+			})
+		}
 	}
 	loadBefore (){
 		this.setState({
@@ -84,10 +99,15 @@ export default class Query extends Component {
 	render (){
 		if (this.props.keyword === undefined){
 			return (
-				<div className="mt30">
+				<div className="mt30 pb30">
 					<div className="search">
 						<input className="bbox f18" type="text" placeholder="~ 输入关键字搜索 ~" ref="keywordInput" onKeyUp={this.search} />
 					</div>
+					<p className="search-ol ac f30 mb30">这儿什么都没有阿</p>
+					<p className="search-ol ac f30 mb30">额被你发现了</p>
+					<p className="search-ol ac f30 mb30">呵呵呵</p>
+					<p className="search-ol ac f30 mb30">哼哼哼</p>
+					<p className="search-ol ac f30 mb30">.FKu..</p>
 				</div>
 			)
 		}else if (this.state.loading){
