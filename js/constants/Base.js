@@ -1,7 +1,7 @@
 export const BASE = {
 	master: 'hexson',
 	duoshuo: 'hexson',
-	baidu: '9d14224261c3197a9f46c652ae3071b3'
+	baidu: '228e0569572a7293c078c76a5f0db0f8'
 };
 
 
