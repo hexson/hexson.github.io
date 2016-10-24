@@ -105,8 +105,8 @@ export default class Query extends Component {
 					</div>
 					<p className="search-ol ac f30 mb30">这儿什么都没有阿</p>
 					<p className="search-ol ac f30 mb30">额被你发现了</p>
-					<p className="search-ol ac f30 mb30">呵呵呵</p>
-					<p className="search-ol ac f30 mb30">哼哼哼</p>
+					<p className="search-ol ac f30 mb30">呵呵呵呵</p>
+					<p className="search-ol ac f30 mb30">哼哼</p>
 					<p className="search-ol ac f30 mb30">.FKu..</p>
 				</div>
 			)
