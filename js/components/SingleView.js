@@ -20,7 +20,7 @@ export default class SingleView extends Component {
 					<span className="list-time f12">{v.created_at.substr(0,10)}</span>
 					{
 						v.labels.map((val,ix) => 
-							<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
+							<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: val.fcolor?('#'+val.fcolor):''}}>{val.name}</a>
 						)
 					}
 				</div>

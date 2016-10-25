@@ -56,7 +56,7 @@ export default class Labels extends Component {
 				<div className="ac">
 					{
 						this.state.data.map((v,i) => 
-							<a key={i} className="tags-label" href="javascript:;" onClick={this.label.bind(this,v.name)} style={{backgroundColor: '#'+v.color}}>{v.name}</a>
+							<a key={i} className="tags-label" href="javascript:;" onClick={this.label.bind(this,v.name)} style={{backgroundColor: '#'+v.color, color: v.fcolor?('#'+v.fcolor):''}}>{v.name}</a>
 						)
 					}
 				</div>

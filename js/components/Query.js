@@ -103,11 +103,10 @@ export default class Query extends Component {
 					<div className="search">
 						<input className="bbox f18" type="text" placeholder="~ 输入关键字搜索 ~" ref="keywordInput" onKeyUp={this.search} />
 					</div>
-					<p className="search-ol ac f30 mb30">这儿什么都没有阿</p>
-					<p className="search-ol ac f30 mb30">额被你发现了</p>
-					<p className="search-ol ac f30 mb30">呵呵呵呵</p>
-					<p className="search-ol ac f30 mb30">哼哼</p>
-					<p className="search-ol ac f30 mb30">.FKu..</p>
+					<p className="search-ol ac f24 mb30">这儿什么都没有阿</p>
+					<p className="search-ol ac f24 mb30">额被你发现了</p>
+					<p className="search-ol ac f24 mb30">呵呵呵呵</p>
+					<p className="search-ol ac f24 mb30">.FKu..</p>
 				</div>
 			)
 		}else if (this.state.loading){

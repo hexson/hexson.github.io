@@ -46,7 +46,7 @@ class Article extends Component {
 		$('pre code').each(function(i,v){
 			hljs.highlightBlock(v);
 		});
-		window.DUOSHUO.EmbedThread(this.refs.ds);
+		window.DUOSHUO && window.DUOSHUO.EmbedThread(this.refs.ds);
 	}
 	render (){
 		if (this.state.issues === null){
@@ -81,7 +81,7 @@ class Article extends Component {
 							<span className="list-time f12">{data.created_at.substr(0,10)}</span>
 							{
 								data.labels.map((val,ix) => 
-									<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color}}>{val.name}</a>
+									<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: val.fcolor?('#'+val.fcolor):''}}>{val.name}</a>
 								)
 							}
 						</div>
