@@ -9,7 +9,7 @@ import NProgress from 'nprogress';
 import Header from '../components/Header.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
-import { BASE } from '../constants/Base.js';
+import { BASE, ISSUES } from '../constants/Base.js';
 import Issues from '../components/Issues.js';
 
 
@@ -26,9 +26,9 @@ class Article extends Component {
 		NProgress.start();
 	}
 	componentDidMount (){
-		if (window.issues){
+		if (ISSUES){
 			this.setState({
-				issues: window.issues
+				issues: ISSUES
 			});
 		}else {
 			Issues.prototype.componentDidMount(this);

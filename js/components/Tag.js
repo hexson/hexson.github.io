@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-import { BASE, LABELS } from '../constants/Base.js';
+import { BASE, LABELS, ISSUES } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
@@ -25,12 +25,12 @@ export default class Tag extends Component {
 		// init
 		this.props.initCallback && this.props.initCallback();
 		// ajax
-		if (window.issues && this.props.page == 1){
+		if (ISSUES && this.props.page == 1){
 			let data = [];
-			for (let i = 0; i < window.issues.length; i++){
-				for (let n = 0; n < window.issues[i].labels.length; n++){
-					if (window.issues[i].labels[n].name == this.props.label){
-						data.push(window.issues[i]);
+			for (let i = 0; i < ISSUES.length; i++){
+				for (let n = 0; n < ISSUES[i].labels.length; n++){
+					if (ISSUES[i].labels[n].name == this.props.label){
+						data.push(ISSUES[i]);
 					}
 				}
 			}
@@ -39,7 +39,7 @@ export default class Tag extends Component {
 				data: data
 			});
 			this.props.callback && this.props.callback(true);
-		}else if (window.issues && window.issues.length < this.props.perpage){
+		}else if (ISSUES && ISSUES.length < this.props.perpage){
 			this.setState({
 				loading: false,
 				data: []

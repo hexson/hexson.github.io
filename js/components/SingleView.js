@@ -2,12 +2,28 @@ import marked from 'marked';
 import React, { Component } from 'react';
 
 
+import { LABELS } from '../constants/Base.js';
+
+
 export default class SingleView extends Component {
+	constructor (props){
+		super(props);
+		this.state = {
+			tags: {}
+		}
+	}
 	componentDidMount (){
 		let v = this.props;
 		let html = marked(v.body).substr(0,marked(v.body).match(/\n/)['index']);
 		this.refs.preview.innerHTML = html;
-		if (html.indexOf('<img src') >= 0) this.refs.preview.style.textIndent = '0px';
+		// if (html.indexOf('<img src') >= 0) this.refs.preview.style.textIndent = '0px';
+		let tags = {};
+		for (let i = 0; i < LABELS.length; i++){
+			tags[LABELS[i].color] = LABELS[i];
+		}
+		this.setState({
+			tags: tags
+		});
 	}
 	render (){
 		let v = this.props;
@@ -20,7 +36,7 @@ export default class SingleView extends Component {
 					<span className="list-time f12">{v.created_at.substr(0,10)}</span>
 					{
 						v.labels.map((val,ix) => 
-							<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: val.fcolor?('#'+val.fcolor):''}}>{val.name}</a>
+							<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: this.state.tags[val.color] && this.state.tags[val.color].fcolor?('#'+this.state.tags[val.color].fcolor):''}}>{val.name}</a>
 						)
 					}
 				</div>

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-import { BASE, DATA } from '../constants/Base.js';
+import { BASE, ISSUES } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
@@ -32,11 +32,11 @@ export default class Query extends Component {
 		this.refs.keywordInput.value = this.props.keyword || '';
 	}
 	ajax (keyword,callback){
-		if (window.issues){
+		if (ISSUES){
 			let data = [];
-			for (let i = 0; i < window.issues.length; i++){
-				if (window.issues[i].title.indexOf(keyword) >= 0 || window.issues[i].body.indexOf(keyword) >= 0){
-					data.push(window.issues[i]);
+			for (let i = 0; i < ISSUES.length; i++){
+				if (ISSUES[i].title.indexOf(keyword) >= 0 || ISSUES[i].body.indexOf(keyword) >= 0){
+					data.push(ISSUES[i]);
 				}
 			}
 			this.setState({

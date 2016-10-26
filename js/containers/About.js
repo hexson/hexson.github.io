@@ -20,14 +20,15 @@ class About extends Component {
 		NProgress.start();
 	}
 	render (){
+		let bgColor = '#f3f3f3';
 		return (
 			<div className="content">
 				<Header />
 				<div className="mt30">
-					<p>
+					<p className="bbox pt15 pr30 pb15 pl30" style={{backgroundColor: bgColor, borderRadius: '6px'}}>
 						<b className="f16 ac abt">一个 <del>沉迷</del> 穿插<br />在魔法世界的 <del>大魔王</del> 小美工,待更...</b>
 					</p>
-					<div className="list-view mb30 views mt30 pt30" ref="log"></div>
+					<div className="list-view bbox mb30 views mt30 pt15 pr30 pb15 pl30" style={{backgroundColor: bgColor, borderRadius: '6px'}} ref="log"></div>
 				</div>
 			</div>
 		)

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-import { BASE, DATA } from '../constants/Base.js';
+import { BASE, ISSUES } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
@@ -19,13 +19,13 @@ export default class List extends Component {
 	}
 	componentDidMount (){
 		// /*
-		if (window.issues && this.props.page == 1){
+		if (ISSUES && this.props.page == 1){
 			this.setState({
 				loading: false,
-				data: window.issues
+				data: ISSUES
 			});
 			this.props.callback && this.props.callback(true);
-		}else if (window.issues && window.issues.length < this.props.perpage){
+		}else if (ISSUES && ISSUES.length < this.props.perpage){
 			this.setState({
 				loading: false,
 				data: []
