@@ -144,6 +144,12 @@ del {
 .black {
 	color: #222222;
 }
+.rel {
+	position: relative;
+}
+.abs {
+	position: absolute;
+}
 .bbox {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -304,9 +310,57 @@ del {
 	text-align: justify;
 }
 
+.title {
+	color: #3d3d3d;
+	position: relative;
+	.transition(.3s);
+	&:hover {
+		color: #222222;
+	};
+	&:before {
+		content: '';
+		width: 100%;
+		height: 1px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background-color: #333333;
+		visibility: visible;
+		transform: scaleX(0);
+		.transition(.25s);
+	};
+	&:after {
+		content: '';
+		width: 100%;
+		height: 2px;
+		position: absolute;
+		right: 0;
+		bottom: -3px;
+		background-color: #333333;
+		visibility: visible;
+		transform: scaleX(0);
+		.transition(.25s);
+	};
+	&:hover:before {
+		visibility: visible;
+		transform: scaleX(1);
+	};
+	&:hover:after {
+		visibility: visible;
+		transform: scaleX(1);
+	};
+}
+
 .load-before-animation {
 	-webkit-animation: loadbebore .4s 1 ease-in-out;
 	animation: loadbebore .4s 1 ease-in-out;
+}
+@-webkit-keyframes loadbebore {
+	0%, 50%, 100% {
+		-webkit-transform: scale(1);
+	}25%, 75% {
+		-webkit-transform: scale(1.2);
+	}
 }
 @keyframes loadbebore {
 	0%, 50%, 100% {
@@ -476,4 +530,56 @@ code span {
 
 .search-ol {
 	.w();
+}
+
+.opacity-bg {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	background-color: #000000;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	display: none;
+	overflow-y: scroll;
+}
+
+.alipay,.WeChat {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	display: none;
+	cursor: pointer;
+}
+
+.opacity-bg,.alipay,.WeChat {
+	.transition(.2s);
+}
+
+.alipay img,.WeChat img {
+	width: 60%;
+	max-width: 20rem;
+	margin: 25% auto 0 auto;
+	display: block;
+	border-radius: 6px;
+}
+
+.opacity-bg.block,.alipay.block,.WeChat.block {
+	display: block;
+}
+
+.opacity-bg.in {
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+.alipay.in,.WeChat.in {
+	opacity: 1;
+	filter: alpha(opacity=100);
 }
