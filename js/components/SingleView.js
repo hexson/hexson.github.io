@@ -30,7 +30,7 @@ export default class SingleView extends Component {
 		return (
 			<div className="list">
 				<h3 className="list-title mb15">
-					<a className="black f20" href={'#/article/'+v.number}>{v.title}</a>
+					<a className="black f20 title" href={'#/article/'+v.number}>{v.title}</a>
 				</h3>
 				<div className="mb30">
 					<span className="list-time f12">{v.created_at.substr(0,10)}</span>

@@ -101,12 +101,10 @@ export default class Query extends Component {
 			return (
 				<div className="mt30 pb30">
 					<div className="search">
-						<input className="bbox f18" type="text" placeholder="~ 输入关键字搜索 ~" ref="keywordInput" onKeyUp={this.search} />
+						<input className="bbox f18" type="text" placeholder="~ 输入关键字搜索(⊙︿⊙) ~" ref="keywordInput" onKeyUp={this.search} />
 					</div>
-					<p className="search-ol ac f24 mb30">这儿什么都没有阿</p>
-					<p className="search-ol ac f24 mb30">额被你发现了</p>
-					<p className="search-ol ac f24 mb30">呵呵呵呵</p>
-					<p className="search-ol ac f24 mb30">.FKu..</p>
+					<p className="search-ol ac f24 mb30">这儿好像什么都没有阿</p>
+					<p className="search-ol ac f24 mb30">.FK..</p>
 				</div>
 			)
 		}else if (this.state.loading){
