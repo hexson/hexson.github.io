@@ -12,6 +12,8 @@
 
 > 代码高亮CSS更换为 `monokai-sublime`
 
+> 优化资源加载速度 *
+
 ### v1.2.2
 
 > 优化jQuery载入慢的问题,采用cdn加速处理
