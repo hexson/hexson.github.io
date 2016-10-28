@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-import { BASE, LABELS, ISSUES } from '../constants/Base.js';
+// import { BASE, LABELS, ISSUES } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
@@ -25,6 +25,7 @@ export default class Tag extends Component {
 		// init
 		this.props.initCallback && this.props.initCallback();
 		// ajax
+		let ISSUES = window.ISSUES;
 		if (ISSUES && this.props.page == 1){
 			let data = [];
 			for (let i = 0; i < ISSUES.length; i++){
@@ -47,7 +48,9 @@ export default class Tag extends Component {
 			this.props.callback && this.props.callback(false);
 		}else {
 			$.ajax({
-				url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
+				// url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
+				url: 'json/data_callbak.json',
+				dataType: 'json',
 				data: {
 					filter: this.props.filter || 'created',
 					per_page: this.props.perpage || 10,
@@ -55,9 +58,22 @@ export default class Tag extends Component {
 					labels: this.props.label || null
 				},
 				success: result => {
+					// this.setState({
+					// 	loading: false,
+					// 	data: result
+					// });
+					window.ISSUES = result;
+					let data = [];
+					for (let i = 0; i < result.length; i++){
+						for (let n = 0; n < result[i].labels.length; n++){
+							if (result[i].labels[n].name == this.props.label){
+								data.push(result[i]);
+							}
+						}
+					}
 					this.setState({
 						loading: false,
-						data: result
+						data: data
 					});
 					this.props.callback && this.props.callback(!!result.length);
 				},

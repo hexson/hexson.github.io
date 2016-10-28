@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 
 
-import { BASE, LABELS } from '../constants/Base.js';
+// import { BASE, LABELS } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
+import Reload from '../components/Reload.js';
 import List from '../components/List.js';
 
 
@@ -33,10 +34,38 @@ export default class Labels extends Component {
 		// 		})
 		// 	}
 		// })
-		this.setState({
-			loading: false,
-			data: LABELS
-		})
+		// 
+		// static labels
+		// this.setState({
+		// 	loading: false,
+		// 	data: LABELS
+		// })
+		// 
+		let LABELS = window.LABELS;
+		if (LABELS){
+			this.setState({
+				loading: false,
+				data: LABELS
+			});
+		}else {
+			$.ajax({
+				url: 'json/labels.json',
+				dataType: 'json',
+				success: result => {
+					window.LABELS = result;
+					this.setState({
+						loading: false,
+						data: result
+					})
+				},
+				error: msg => {
+					this.setState({
+						loading: false,
+						error: msg
+					})
+				}
+			});
+		}
 	}
 	label (label){
 		this.props.callback && this.props.callback();

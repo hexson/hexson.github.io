@@ -2,7 +2,7 @@ import marked from 'marked';
 import React, { Component } from 'react';
 
 
-import { LABELS } from '../constants/Base.js';
+// import { LABELS } from '../constants/Base.js';
 
 
 export default class SingleView extends Component {
@@ -17,20 +17,41 @@ export default class SingleView extends Component {
 		let html = marked(v.body).substr(0,marked(v.body).match(/\n/)['index']);
 		this.refs.preview.innerHTML = html;
 		// if (html.indexOf('<img src') >= 0) this.refs.preview.style.textIndent = '0px';
-		let tags = {};
-		for (let i = 0; i < LABELS.length; i++){
-			tags[LABELS[i].color] = LABELS[i];
+		let LABELS = window.LABELS;
+		if (LABELS){
+			let tags = {};
+			for (let i = 0; i < LABELS.length; i++){
+				tags[LABELS[i].color] = LABELS[i];
+			}
+			this.setState({
+				tags: tags
+			});
+		}else {
+			$.ajax({
+				url: 'json/labels.json',
+				dataType: 'json',
+				success: result => {
+					window.LABELS = result;
+					let tags = {};
+					for (let i = 0; i < result.length; i++){
+						tags[result[i].color] = result[i];
+					}
+					this.setState({
+						tags: tags
+					});
+				},
+				error: msg => {
+					console.log(msg);
+				}
+			})
 		}
-		this.setState({
-			tags: tags
-		});
 	}
 	render (){
 		let v = this.props;
 		return (
 			<div className="list">
 				<h3 className="list-title mb15">
-					<a className="black f20 title" href={'#/article/'+v.number}>{v.title}</a>
+					<a className="black f22 title" href={'#/article/'+v.number}>{v.title}</a>
 				</h3>
 				<div className="mb30">
 					<span className="list-time f12">{v.created_at.substr(0,10)}</span>

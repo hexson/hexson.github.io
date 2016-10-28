@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-import { BASE, ISSUES } from '../constants/Base.js';
+// import { BASE, ISSUES } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
@@ -32,6 +32,7 @@ export default class Query extends Component {
 		this.refs.keywordInput.value = this.props.keyword || '';
 	}
 	ajax (keyword,callback){
+		let ISSUES = window.ISSUES;
 		if (ISSUES){
 			let data = [];
 			for (let i = 0; i < ISSUES.length; i++){
@@ -47,14 +48,18 @@ export default class Query extends Component {
 			callback && callback();
 		}else {
 			$.ajax({
-				url: `https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + keyword,
+				// url: `https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + keyword,
+				url: 'json/data_callbak.json',
+				dataType: 'json',
 				success: result => {
-					this.setState({
-						loading: false,
-						data: result.items,
-						btnClass: 'load-before block f18'
-					});
-					callback && callback();
+					// this.setState({
+					// 	loading: false,
+					// 	data: result.items,
+					// 	btnClass: 'load-before block f18'
+					// });
+					// callback && callback();
+					window.ISSUES = result;
+					this.ajax(keyword,callback);
 				},
 				error: msg => {
 					this.setState({

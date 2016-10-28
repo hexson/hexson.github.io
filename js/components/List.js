@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 
 
-import { BASE, ISSUES } from '../constants/Base.js';
+// import { BASE, ISSUES } from '../constants/Base.js';
+// import { BASE } from '../constants/Base.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
 import SingleView from '../components/SingleView.js';
@@ -19,13 +20,13 @@ export default class List extends Component {
 	}
 	componentDidMount (){
 		// /*
-		if (ISSUES && this.props.page == 1){
+		if (window.ISSUES && this.props.page == 1){
 			this.setState({
 				loading: false,
-				data: ISSUES
+				data: window.ISSUES
 			});
 			this.props.callback && this.props.callback(true);
-		}else if (ISSUES && ISSUES.length < this.props.perpage){
+		}else if (window.ISSUES && window.ISSUES.length < this.props.perpage){
 			this.setState({
 				loading: false,
 				data: []
@@ -33,14 +34,16 @@ export default class List extends Component {
 			this.props.callback && this.props.callback(false);
 		}else {
 			$.ajax({
-				url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
+				// url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
+				url: 'json/data_callbak.json',
 				data: {
 					filter: this.props.filter || 'created',
 					per_page: this.props.perpage || 10,
 					page: this.props.page || 1
 				},
+				dataType: 'json',
 				success: result => {
-					window.issues = result;
+					window.ISSUES = result;
 					this.setState({
 						loading: false,
 						data: result

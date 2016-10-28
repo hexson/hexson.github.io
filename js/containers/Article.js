@@ -9,7 +9,7 @@ import NProgress from 'nprogress';
 import Header from '../components/Header.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
-import { BASE, ISSUES } from '../constants/Base.js';
+// import { BASE, ISSUES } from '../constants/Base.js';
 import Issues from '../components/Issues.js';
 
 
@@ -26,6 +26,7 @@ class Article extends Component {
 		NProgress.start();
 	}
 	componentDidMount (){
+		let ISSUES = window.ISSUES;
 		if (ISSUES){
 			this.setState({
 				issues: ISSUES
@@ -75,7 +76,7 @@ class Article extends Component {
 					<Header />
 					<div className="list ac mt20">
 						<h3 className="list-title mb15">
-							<a className="black f20" href="javascript:;">{data.title}</a>
+							<a className="black f22" href="javascript:;">{data.title}</a>
 						</h3>
 						<div className="mb30">
 							<span className="list-time f12">{data.created_at.substr(0,10)}</span>

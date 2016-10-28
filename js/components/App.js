@@ -6,10 +6,29 @@ import { BASE } from '../constants/Base.js';
 
 
 export default class App extends Component {
+	constructor (props){
+		super(props);
+		this.state = {
+			labels: null
+		}
+	}
 	componentWillMount (){
 		NProgress.configure({ showSpinner: false });
 		this.baiduStatistics();
 		this.duoshuoComments();
+		$.ajax({
+			url: 'json/labels.json',
+			dataType: 'json',
+			success: result => {
+				window.LABELS = result;
+				this.setState({
+					labels: true
+				})
+			},
+			error: msg => {
+				console.log(msg);
+			}
+		})
 	}
 	baiduStatistics (){
 		if (location.host.indexOf('hexson') >= 0){
@@ -34,10 +53,14 @@ export default class App extends Component {
 		})();
 	}
 	render (){
-		return (
-			<div>
-				<div>{this.props.children}</div>
-			</div>
-		)
+		if (this.state.labels == null){
+			return null;
+		}else {
+			return (
+				<div>
+					<div>{this.props.children}</div>
+				</div>
+			)
+		}
 	}
 }
