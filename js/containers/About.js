@@ -26,7 +26,7 @@ class About extends Component {
 	}
 	showfn (bg,style){
 		if (bg.className.indexOf('block') < 0){
-			$('body').css('overflow-y', 'hidden');
+			// $('body').css('overflow-y', 'hidden');
 			bg.className += ' block';
 			style.className += ' block';
 			setTimeout(function(){
@@ -39,7 +39,7 @@ class About extends Component {
 			setTimeout(function(){
 				bg.className = bg.className.replace(' block', '');
 				style.className = style.className.replace(' block', '');
-				$('body').css('overflow-y', 'auto');
+				// $('body').css('overflow-y', 'auto');
 			}, 200);
 		}
 	}
