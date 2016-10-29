@@ -60,7 +60,6 @@ class About extends Component {
 					</p>
 					<p className="bbox pt15 pr30 pb15 pl30 mt30 f16 lh30" style={{backgroundColor: bgColor, borderRadius: '6px'}}>
 						<del>如果你想赞助我</del> 你的支持就是我的动力
-						<br />或者说你需要一篇软文来了解某个知识点等等 ~
 						<br />欢迎打赏一杯咖啡给我
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showAlipay} style={{textDecoration: 'underline'}}>Alipay</a>
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showWeChat} style={{textDecoration: 'underline'}}>WeChat</a>
