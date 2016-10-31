@@ -37,8 +37,12 @@ class Article extends Component {
 			Issues.prototype.componentDidMount(this);
 		}
 		if (LABELS){
+			let tags = {};
+			for (let i = 0; i < LABELS.length; i++){
+				tags[LABELS[i].color] = LABELS[i];
+			}
 			this.setState({
-				labels: LABELS
+				tags: tags
 			});
 		}else {
 			$.ajax({
