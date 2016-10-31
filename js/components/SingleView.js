@@ -29,7 +29,6 @@ export default class SingleView extends Component {
 		}else {
 			$.ajax({
 				url: 'json/labels.json',
-				dataType: 'json',
 				success: result => {
 					window.LABELS = result;
 					let tags = {};

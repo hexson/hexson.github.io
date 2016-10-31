@@ -13,7 +13,6 @@ export default class Issues {
 				filter: 'created',
 				per_page: 10000
 			},
-			dataType: 'json',
 			success: result => {
 				that.setState({
 					issues: result

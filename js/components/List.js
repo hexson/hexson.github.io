@@ -41,7 +41,6 @@ export default class List extends Component {
 					per_page: this.props.perpage || 10,
 					page: this.props.page || 1
 				},
-				dataType: 'json',
 				success: result => {
 					window.ISSUES = result;
 					this.setState({

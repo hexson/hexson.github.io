@@ -50,7 +50,6 @@ export default class Tag extends Component {
 			$.ajax({
 				// url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
 				url: 'json/data_callbak.json',
-				dataType: 'json',
 				data: {
 					filter: this.props.filter || 'created',
 					per_page: this.props.perpage || 10,

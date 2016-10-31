@@ -50,7 +50,6 @@ export default class Query extends Component {
 			$.ajax({
 				// url: `https://api.github.com/search/issues?q=author:${BASE.master}+repo:${BASE.master}/${BASE.master}.github.io+` + keyword,
 				url: 'json/data_callbak.json',
-				dataType: 'json',
 				success: result => {
 					// this.setState({
 					// 	loading: false,

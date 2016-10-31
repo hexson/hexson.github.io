@@ -50,7 +50,6 @@ export default class Labels extends Component {
 		}else {
 			$.ajax({
 				url: 'json/labels.json',
-				dataType: 'json',
 				success: result => {
 					window.LABELS = result;
 					this.setState({

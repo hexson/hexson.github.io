@@ -6,30 +6,60 @@ import { BASE } from '../constants/Base.js';
 
 
 export default class App extends Component {
-	constructor (props){
-		super(props);
-		this.state = {
-			labels: null
-		}
-	}
+	// constructor (props){
+	// 	super(props);
+	// 	this.state = {
+	// 		labels: null
+	// 	}
+	// }
 	componentWillMount (){
 		NProgress.configure({ showSpinner: false });
 		this.baiduStatistics();
 		this.duoshuoComments();
-		$.ajax({
-			url: 'json/labels.json',
+		// $.ajax({
+		// 	url: 'json/labels.json',
+		// 	dataType: 'json',
+		// 	success: result => {
+		// 		window.LABELS = result;
+		// 		// this.setState({
+		// 		// 	labels: true
+		// 		// })
+		// 	},
+		// 	error: msg => {
+		// 		console.log(msg);
+		// 	}
+		// });
+		$.ajaxSetup({
 			dataType: 'json',
-			success: result => {
-				window.LABELS = result;
-				this.setState({
-					labels: true
-				})
+			beforeSend: function(request){
+				let url = this.url.split(".")[0];
+				if(!window["ajax-"+url]){
+					window["ajax-"+url] = true;
+				}else {
+					request.abort();
+				}
 			},
-			error: msg => {
-				console.log(msg);
+			complete: function(){
+				let url = this.url.split(".")[0];
+				window["ajax-"+url] = false;
 			}
-		})
+		});
 	}
+	// componentDidMount (){
+	// 	$.ajax({
+	// 		url: 'json/labels.json',
+	// 		dataType: 'json',
+	// 		success: result => {
+	// 			window.LABELS = result;
+	// 			this.setState({
+	// 				labels: true
+	// 			})
+	// 		},
+	// 		error: msg => {
+	// 			console.log(msg);
+	// 		}
+	// 	})
+	// }
 	baiduStatistics (){
 		if (location.host.indexOf('hexson') >= 0){
 			var _hmt = _hmt || [];
@@ -53,14 +83,14 @@ export default class App extends Component {
 		})();
 	}
 	render (){
-		if (this.state.labels == null){
-			return null;
-		}else {
+		// if (this.state.labels == null){
+		// 	return null;
+		// }else {
 			return (
 				<div>
 					<div>{this.props.children}</div>
 				</div>
 			)
-		}
+		// }
 	}
 }
