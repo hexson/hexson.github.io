@@ -63,7 +63,7 @@ class About extends Component {
 						<br />欢迎打赏一杯咖啡给我
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showAlipay} style={{textDecoration: 'underline'}}>Alipay</a>
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showWeChat} style={{textDecoration: 'underline'}}>WeChat</a>
-						<br />商业合作及其他相关联系 Email:1477546184@qq.com
+						<br />商务合作及其他相关联系 Email: <a className="f14" href="mailto:1477546184@qq.com" style={{color: '#00bcd4'}}>1477546184@qq.com</a>
 					</p>
 					<div className="list-view bbox mb30 views mt30 pt15 pr30 pb15 pl30" style={{backgroundColor: bgColor, borderRadius: '6px'}} ref="log"></div>
 				</div>
