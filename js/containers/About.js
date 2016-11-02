@@ -63,8 +63,37 @@ class About extends Component {
 						<br />欢迎打赏一杯咖啡给我
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showAlipay} style={{textDecoration: 'underline'}}>Alipay</a>
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showWeChat} style={{textDecoration: 'underline'}}>WeChat</a>
-						<br />商务合作及其他相关联系 Email: <a className="f14" href="mailto:1477546184@qq.com" style={{color: '#00bcd4'}}>1477546184@qq.com</a>
+						<br />商务合作及其他相关联系 Email: <a className="f14" href="mailto:1477546184@qq.com" style={{color: '#e21d42'}}>1477546184@qq.com</a>
+						<br /><small className="gray">* 有教学解惑需求也可以联系我 / 开放友链 · 欢迎互链 / 感谢各位的支持</small>
+						<br /><small className="gray">* 打赏请备注相关信息才能将你添加到列表中并获得打赏友链（如果你有博客相关）</small>
 					</p>
+					<div className="al bbox pt15 pr30 pb15 pl30 mt30 f12" style={{backgroundColor: bgColor, borderRadius: '6px'}}>
+						<p className="f14 mb10">打赏列表</p>
+						<table width="100%">
+							<thead>
+								<tr>
+									<th>时间</th>
+									<th>支付宝/微信</th>
+									<th>姓名</th>
+									<th>金额(¥)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2016-10-28</td>
+									<td>2365***152@qq.com</td>
+									<td>*明月</td>
+									<td>6.66</td>
+								</tr>
+								<tr>
+									<td>2016-11-01</td>
+									<td>s***2@163.com</td>
+									<td>*彬</td>
+									<td>19.50</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 					<div className="list-view bbox mb30 views mt30 pt15 pr30 pb15 pl30" style={{backgroundColor: bgColor, borderRadius: '6px'}} ref="log"></div>
 				</div>
 				<div className="opacity-bg" ref="bg"></div>
