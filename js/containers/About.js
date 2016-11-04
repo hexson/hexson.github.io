@@ -56,7 +56,7 @@ class About extends Component {
 				<Header />
 				<div className="mt30">
 					<p className="bbox pt15 pr30 pb15 pl30" style={{backgroundColor: bgColor, borderRadius: '6px'}}>
-						<b className="f16 ac abt">一个 <del>沉迷</del> 穿插<br />在魔法世界的 <del>大魔王</del> 小美工...</b>
+						<b className="f16 ac abt">一个 <del>沉迷</del> 穿插<br />在魔法世界的 <del>大魔王</del> 小萌新...</b>
 					</p>
 					<p className="bbox pt15 pr30 pb15 pl30 mt30 f16 lh30" style={{backgroundColor: bgColor, borderRadius: '6px'}}>
 						<del>如果你想赞助我</del> 你的支持就是我的动力
@@ -65,7 +65,7 @@ class About extends Component {
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showWeChat} style={{textDecoration: 'underline'}}>WeChat</a>
 						<br />商务合作及其他相关联系 Email: <a className="f14" href="mailto:1477546184@qq.com" style={{color: '#e21d42'}}>1477546184@qq.com</a>
 						<br /><small className="gray">* 有教学解惑需求也可以联系我 / 开放友链 · 欢迎互链 / 感谢各位的支持</small>
-						<br /><small className="gray">* 打赏请备注相关信息才能将你添加到列表中并获得打赏友链（如果你有博客相关）</small>
+						<br /><small className="gray">* 打赏请备注才能将你添加到列表中并获得打赏友链（如果你有博客相关）</small>
 					</p>
 					<div className="al bbox pt15 pr30 pb15 pl30 mt30 f12" style={{backgroundColor: bgColor, borderRadius: '6px'}}>
 						<p className="f14 mb10">打赏列表</p>

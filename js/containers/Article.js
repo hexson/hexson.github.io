@@ -102,7 +102,7 @@ class Article extends Component {
 			return (
 				<div className="content">
 					<Header />
-					<div className="list ac mt20">
+					<div className="list ac mt30">
 						<h3 className="list-title mb15">
 							<a className="black f22" href="javascript:;">{data.title}</a>
 						</h3>
