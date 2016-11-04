@@ -84,7 +84,7 @@ html,body {
 	background-color: #cccccc;
 }
 ::-webkit-scrollbar {
-	width: 4px;
+	width: 5px;
 	height: 6px;
 }
 ::-webkit-scrollbar-thumb {
@@ -517,6 +517,27 @@ code span {
 	/*text-indent: 0rem;*/
 	color: #777777;
 	line-height: 2rem;
+}
+.views table,.views tr,.views th,.views td {
+	.bbox();
+}
+.views table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	border-spacing: 0;
+	border-collapse: collapse;
+	font-size: 1rem;
+	margin-bottom: 3rem;
+	color: #333333;
+}
+.views table tr {
+	background-color: #ffffff;
+	border-top: 1px solid #cccccc;
+}
+.views table th,.views table td {
+	padding: .6rem;
+	border: 1px solid #dddddd;
 }
 
 .article-pt80 {
