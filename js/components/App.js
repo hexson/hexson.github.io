@@ -45,6 +45,9 @@ export default class App extends Component {
 				window["ajax-"+url] = false;
 			}
 		});
+		$.get('json/labels.json', function(result){
+			window.LABELS = result;
+		});
 	}
 	// componentDidMount (){
 	// 	$.ajax({

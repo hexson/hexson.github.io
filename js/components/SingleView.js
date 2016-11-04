@@ -12,11 +12,7 @@ export default class SingleView extends Component {
 			tags: {}
 		}
 	}
-	componentDidMount (){
-		let v = this.props;
-		let html = marked(v.body).substr(0,marked(v.body).match(/\n/)['index']);
-		this.refs.preview.innerHTML = html;
-		// if (html.indexOf('<img src') >= 0) this.refs.preview.style.textIndent = '0px';
+	componentWillMount (){
 		let LABELS = window.LABELS;
 		if (LABELS){
 			let tags = {};
@@ -44,6 +40,12 @@ export default class SingleView extends Component {
 				}
 			})
 		}
+	}
+	componentDidMount (){
+		let v = this.props;
+		let html = marked(v.body).substr(0,marked(v.body).match(/\n/)['index']);
+		this.refs.preview.innerHTML = html;
+		// if (html.indexOf('<img src') >= 0) this.refs.preview.style.textIndent = '0px';
 	}
 	render (){
 		let v = this.props;

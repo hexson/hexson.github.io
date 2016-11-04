@@ -45,6 +45,7 @@ class Article extends Component {
 				tags: tags
 			});
 		}else {
+			if (window['ajax-json/labels']) window['ajax-json/labels'] = !1;
 			$.ajax({
 				url: 'json/labels.json',
 				success: result => {
@@ -64,7 +65,7 @@ class Article extends Component {
 		}
 		// this.refs.content.innerHTML = marked(this.refs.content.body);
 		if (this.refs.ds) window.DUOSHUO.EmbedThread(this.refs.ds);
-		NProgress.done();
+		// NProgress.done();
 		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
 	}
 	routerWillLeave (){
@@ -76,6 +77,7 @@ class Article extends Component {
 			hljs.highlightBlock(v);
 		});
 		window.DUOSHUO && window.DUOSHUO.EmbedThread(this.refs.ds);
+		NProgress.done();
 	}
 	render (){
 		if (this.state.tags === null || this.state.issues === null){
