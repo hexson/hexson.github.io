@@ -65,7 +65,7 @@ class About extends Component {
 						<a className="gray f14 ml10" href="javascript:;" onClick={this.showWeChat} style={{textDecoration: 'underline'}}>WeChat</a>
 						<br />商务合作及其他相关联系 Email: <a className="f14" href="mailto:1477546184@qq.com" style={{color: '#e21d42'}}>1477546184@qq.com</a>
 						<br /><small className="gray">* 有教学解惑需求也可以联系我 / 开放友链 · 欢迎互链 / 感谢各位的支持</small>
-						<br /><small className="gray">* 打赏请备注才能将你添加到列表中并获得打赏友链（如果你有博客相关）</small>
+						<br /><small className="gray">* 打赏请备注才能将你添加到列表并增加打赏友链(如果你有博客相关)</small>
 					</p>
 					<div className="al bbox pt15 pr30 pb15 pl30 mt30 f12" style={{backgroundColor: bgColor, borderRadius: '6px'}}>
 						<p className="f14 mb10">打赏列表</p>
