@@ -48,6 +48,7 @@ export default class Labels extends Component {
 				data: LABELS
 			});
 		}else {
+			if (window['ajax-json/labels']) window['ajax-json/labels'] = !1;
 			$.ajax({
 				url: 'json/labels.json',
 				success: result => {
@@ -84,7 +85,7 @@ export default class Labels extends Component {
 				<div className="ac">
 					{
 						this.state.data.map((v,i) => 
-							<a key={i} className="tags-label" href="javascript:;" onClick={this.label.bind(this,v.name)} style={{backgroundColor: '#'+v.color, color: v.fcolor?('#'+v.fcolor):''}}>{v.name}</a>
+							<a key={i} className="tags-label mb15" href="javascript:;" onClick={this.label.bind(this,v.name)} style={{backgroundColor: '#'+v.color, color: v.fcolor?('#'+v.fcolor):''}}>{v.name}</a>
 						)
 					}
 				</div>
