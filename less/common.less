@@ -222,7 +222,7 @@ del {
 }
 .content {
 	.w();
-	max-width: 650px;
+	max-width: 700px;
 	padding: 0 15px;
 	margin: 0 auto;
 	.bbox();
@@ -383,6 +383,10 @@ del {
 	color: #332a28;
 	border-radius: 3px;
 	margin-left: 1.2rem;
+	.transition(.2s);
+	&:hover {
+		opacity: .85;
+	};
 }
 .tags-label:first-child {
 	margin: 0;
@@ -538,6 +542,11 @@ code span {
 .views table th,.views table td {
 	padding: .6rem;
 	border: 1px solid #dddddd;
+}
+.views a {
+	&:hover {
+		text-decoration: underline;
+	};
 }
 
 .article-pt80 {
