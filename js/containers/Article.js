@@ -6,6 +6,7 @@ import NProgress from 'nprogress';
 // import hljs from 'highlight.js';
 
 
+import HEXTOHSV from '../lib/HEXTOHSV.HEXSON.js';
 import Header from '../components/Header.js';
 import Loading from '../components/Loading.js';
 import Reload from '../components/Reload.js';
@@ -17,7 +18,7 @@ class Article extends Component {
 	constructor (props){
 		super(props);
 		this.state = {
-			tags: null,
+			// tags: null,
 			issues: null,
 			error: null
 		}
@@ -28,7 +29,7 @@ class Article extends Component {
 	}
 	componentDidMount (){
 		let ISSUES = window.ISSUES;
-		let LABELS = window.LABELS;
+		// let LABELS = window.LABELS;
 		if (ISSUES){
 			this.setState({
 				issues: ISSUES
@@ -36,33 +37,33 @@ class Article extends Component {
 		}else {
 			Issues.prototype.componentDidMount(this);
 		}
-		if (LABELS){
-			let tags = {};
-			for (let i = 0; i < LABELS.length; i++){
-				tags[LABELS[i].color] = LABELS[i];
-			}
-			this.setState({
-				tags: tags
-			});
-		}else {
-			if (window['ajax-json/labels']) window['ajax-json/labels'] = !1;
-			$.ajax({
-				url: 'json/labels.json',
-				success: result => {
-					window.LABELS = result;
-					let tags = {};
-					for (let i = 0; i < result.length; i++){
-						tags[result[i].color] = result[i];
-					}
-					this.setState({
-						tags: tags
-					});
-				},
-				error: msg => {
-					console.log(msg);
-				}
-			});
-		}
+		// if (LABELS){
+		// 	let tags = {};
+		// 	for (let i = 0; i < LABELS.length; i++){
+		// 		tags[LABELS[i].color] = LABELS[i];
+		// 	}
+		// 	this.setState({
+		// 		tags: tags
+		// 	});
+		// }else {
+		// 	if (window['ajax-json/labels']) window['ajax-json/labels'] = !1;
+		// 	$.ajax({
+		// 		url: 'json/labels.json',
+		// 		success: result => {
+		// 			window.LABELS = result;
+		// 			let tags = {};
+		// 			for (let i = 0; i < result.length; i++){
+		// 				tags[result[i].color] = result[i];
+		// 			}
+		// 			this.setState({
+		// 				tags: tags
+		// 			});
+		// 		},
+		// 		error: msg => {
+		// 			console.log(msg);
+		// 		}
+		// 	});
+		// }
 		// this.refs.content.innerHTML = marked(this.refs.content.body);
 		if (this.refs.ds) window.DUOSHUO.EmbedThread(this.refs.ds);
 		// NProgress.done();
@@ -112,7 +113,7 @@ class Article extends Component {
 							<span className="list-time f12">{data.created_at.substr(0,10)}</span>
 							{
 								data.labels.map((val,ix) => 
-									<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: this.state.tags[val.color] && this.state.tags[val.color].fcolor?('#'+this.state.tags[val.color].fcolor):''}}>{val.name}</a>
+									<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: HEXTOHSV(val.color)[1] >= 50 || HEXTOHSV(val.color)[2] <= 50 ? '#ffffff' : ''}}>{val.name}</a>
 								)
 							}
 						</div>
