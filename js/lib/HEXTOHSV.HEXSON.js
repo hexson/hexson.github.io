@@ -1,3 +1,8 @@
+/**
+ * @hexson
+ * @param HEX colors value
+ */
+
 export default function HEXTOHSV (HEX){
   HEX = HEX.toLowerCase();
   if (HEX.length === 3){
