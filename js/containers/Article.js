@@ -24,7 +24,6 @@ class Article extends Component {
 		}
 	}
 	componentWillMount (){
-		window.scrollTo(0, 0);
 		NProgress.start();
 	}
 	componentDidMount (){
@@ -73,6 +72,7 @@ class Article extends Component {
 		NProgress.start();
 	}
 	componentDidUpdate (){
+		window.scrollTo(0, 0);
 		if (this.refs.content) this.refs.content.innerHTML = marked(this.refs.content.getAttribute('data-body'));
 		$('pre code').each(function(i,v){
 			hljs.highlightBlock(v);
@@ -81,7 +81,7 @@ class Article extends Component {
 		NProgress.done();
 	}
 	render (){
-		if (this.state.tags === null || this.state.issues === null){
+		if (this.state.issues === null){
 			return (
 				<div className="article-pt80">
 					<Loading />
