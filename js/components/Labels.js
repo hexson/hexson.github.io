@@ -42,22 +42,30 @@ export default class Labels extends Component {
 		// 	data: LABELS
 		// })
 		// 
-		$.ajax({
-			url: 'json/labels.json',
-			success: result => {
-				window.LABELS = result;
-				this.setState({
-					loading: false,
-					data: result
-				})
-			},
-			error: msg => {
-				this.setState({
-					loading: false,
-					error: msg
-				})
-			}
-		});
+		let LABELS = window.LABELS;
+		if (LABELS){
+			this.setState({
+				loading: false,
+				data: LABELS
+			});
+		}else {
+			$.ajax({
+				url: 'json/labels.json',
+				success: result => {
+					window.LABELS = result;
+					this.setState({
+						loading: false,
+						data: result
+					})
+				},
+				error: msg => {
+					this.setState({
+						loading: false,
+						error: msg
+					})
+				}
+			});
+		}
 	}
 	label (label){
 		this.props.callback && this.props.callback();
