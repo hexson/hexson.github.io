@@ -89,7 +89,7 @@ class Tags extends Component {
 						<p className="ac f18 mb30">- {this.props.params.tag} -</p>
 						{
 							this.state.list.map((v,i) => 
-								<Tag key={i} perpage="10" page={v} label={this.props.params.tag} callback={this.changeBtn} initCallback={this.initBtn} />
+								<Tag key={i} perpage="10000" page={v} label={this.props.params.tag} callback={this.changeBtn} initCallback={this.initBtn} />
 							)
 						}
 						<button className={this.state.btnClass} onClick={this.loadBefore}>{loadBeforeText}</button>

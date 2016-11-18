@@ -6,12 +6,6 @@ import { BASE } from '../constants/Base.js';
 
 
 export default class App extends Component {
-	// constructor (props){
-	// 	super(props);
-	// 	this.state = {
-	// 		labels: null
-	// 	}
-	// }
 	componentWillMount (){
 		NProgress.configure({ showSpinner: false });
 		this.baiduStatistics();
@@ -45,9 +39,9 @@ export default class App extends Component {
 				window["ajax-"+url] = false;
 			}
 		});
-		$.get('json/labels.json', function(result){
-			window.LABELS = result;
-		});
+		// $.get('json/labels.json', function(result){
+		// 	window.LABELS = result;
+		// });
 	}
 	// componentDidMount (){
 	// 	$.ajax({
@@ -87,14 +81,10 @@ export default class App extends Component {
 		})();
 	}
 	render (){
-		// if (this.state.labels == null){
-		// 	return null;
-		// }else {
-			return (
-				<div>
-					<div>{this.props.children}</div>
-				</div>
-			)
-		// }
+		return (
+			<div>
+				<div>{this.props.children}</div>
+			</div>
+		)
 	}
 }

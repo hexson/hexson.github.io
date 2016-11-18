@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 
 // import { LABELS } from '../constants/Base.js';
+import HEXTOHSV from '../lib/HEXTOHSV.HEXSON.js';
 
 
 export default class SingleView extends Component {
@@ -12,35 +13,35 @@ export default class SingleView extends Component {
 			tags: {}
 		}
 	}
-	componentWillMount (){
-		let LABELS = window.LABELS;
-		if (LABELS){
-			let tags = {};
-			for (let i = 0; i < LABELS.length; i++){
-				tags[LABELS[i].color] = LABELS[i];
-			}
-			this.setState({
-				tags: tags
-			});
-		}else {
-			$.ajax({
-				url: 'json/labels.json',
-				success: result => {
-					window.LABELS = result;
-					let tags = {};
-					for (let i = 0; i < result.length; i++){
-						tags[result[i].color] = result[i];
-					}
-					this.setState({
-						tags: tags
-					});
-				},
-				error: msg => {
-					console.log(msg);
-				}
-			})
-		}
-	}
+	// componentWillMount (){
+	// 	let LABELS = window.LABELS;
+	// 	if (LABELS){
+	// 		let tags = {};
+	// 		for (let i = 0; i < LABELS.length; i++){
+	// 			tags[LABELS[i].color] = LABELS[i];
+	// 		}
+	// 		this.setState({
+	// 			tags: tags
+	// 		});
+	// 	}else {
+	// 		$.ajax({
+	// 			url: 'json/labels.json',
+	// 			success: result => {
+	// 				window.LABELS = result;
+	// 				let tags = {};
+	// 				for (let i = 0; i < result.length; i++){
+	// 					tags[result[i].color] = result[i];
+	// 				}
+	// 				this.setState({
+	// 					tags: tags
+	// 				});
+	// 			},
+	// 			error: msg => {
+	// 				console.log(msg);
+	// 			}
+	// 		})
+	// 	}
+	// }
 	componentDidMount (){
 		let v = this.props;
 		let html = marked(v.body).substr(0,marked(v.body).match(/\n/)['index']);
@@ -58,7 +59,7 @@ export default class SingleView extends Component {
 					<span className="list-time f12">{v.created_at.substr(0,10)}</span>
 					{
 						v.labels.map((val,ix) => 
-							<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: this.state.tags[val.color] && this.state.tags[val.color].fcolor?('#'+this.state.tags[val.color].fcolor):''}}>{val.name}</a>
+							<a key={ix} className="list-tag f12" style={{backgroundColor: '#'+val.color, color: HEXTOHSV(val.color)[1] >= 50 || HEXTOHSV(val.color)[2] <= 50 ? '#ffffff' : ''}}>{val.name}</a>
 						)
 					}
 				</div>
