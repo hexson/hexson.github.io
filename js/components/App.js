@@ -10,7 +10,7 @@ export default class App extends Component {
 		NProgress.configure({ showSpinner: false });
 		this.baiduStatistics();
 		this.duoshuoComments();
-		console.log('%cWelcome to Hexson\'s blog.\n欢迎来到我的博客,商务合作及友链等请联系:\nE-mail: 1477546184@qq.com', 'color: #1d89e2; font-size: 13px; line-height: 20px;');
+		console.log('%cWelcome to Hexson\'s blog.\n欢迎来到我的博客,商务合作及友链等请联系:\nE-mail - 1477546184@qq.com', 'color: #1d89e2; font-size: 13px; line-height: 20px;');
 		// $.ajax({
 		// 	url: 'json/labels.json',
 		// 	dataType: 'json',

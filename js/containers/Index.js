@@ -27,6 +27,9 @@ class Index extends Component {
 					<div className="master f16">{BASE.master}</div>
 					<Nav />
 				</div>
+				<div className="ng2-link ac">
+					@React By Hexson | <a href="/ng2">Angular 2 版</a>
+				</div>
 			</div>
 		)
 	}
