@@ -36,11 +36,11 @@ export default class List extends Component {
 			$.ajax({
 				// url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
 				url: 'json/data_callbak.json',
-				data: {
-					filter: this.props.filter || 'created',
-					per_page: this.props.perpage || 10,
-					page: this.props.page || 1
-				},
+				// data: {
+				// 	filter: this.props.filter || 'created',
+				// 	per_page: this.props.perpage || 10,
+				// 	page: this.props.page || 1
+				// },
 				success: result => {
 					window.ISSUES = result;
 					this.setState({

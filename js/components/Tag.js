@@ -50,12 +50,12 @@ export default class Tag extends Component {
 			$.ajax({
 				// url: `https://api.github.com/repos/${BASE.master}/${BASE.master}.github.io/issues`,
 				url: 'json/data_callbak.json',
-				data: {
-					filter: this.props.filter || 'created',
-					per_page: this.props.perpage || 10,
-					page: this.props.page || 1,
-					labels: this.props.label || null
-				},
+				// data: {
+				// 	filter: this.props.filter || 'created',
+				// 	per_page: this.props.perpage || 10,
+				// 	page: this.props.page || 1,
+				// 	labels: this.props.label || null
+				// },
 				success: result => {
 					// this.setState({
 					// 	loading: false,

@@ -44,8 +44,14 @@ export default class SingleView extends Component {
 	// }
 	componentDidMount (){
 		let v = this.props;
-		let html = marked(v.body).substr(0,marked(v.body).match(/\n/)['index']);
+		let body = marked(v.body);
+		let html = /^<pre>/.test(body) ? body.substr(0,body.match(/<\/pre>/)['index']) : body.substr(0,body.match(/\n/)['index']);
 		this.refs.preview.innerHTML = html;
+		if (/^<pre>/.test(body)){
+			$('pre code').each(function(i,v){
+				hljs.highlightBlock(v);
+			});
+		}
 		// if (html.indexOf('<img src') >= 0) this.refs.preview.style.textIndent = '0px';
 	}
 	render (){
