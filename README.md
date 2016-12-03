@@ -22,7 +22,7 @@
 
 > 关于和搜索界面优化，增加update日志
 
-> 代码高亮CSS更换为 `monokai-sublime`
+> 代码高亮主题更换为 `monokai-sublime`
 
 > 优化资源加载速度 *
 
