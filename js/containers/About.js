@@ -109,8 +109,8 @@ class About extends Component {
 					<div className="list-view bbox mb30 views mt30 pt15 pr30 pb15 pl30 logs" style={{backgroundColor: bgColor, borderRadius: '6px'}} ref="log"></div>
 				</div>
 				<div className="opacity-bg" ref="bg"></div>
-				<div className="alipay" ref="alipay" onClick={this.showAlipay}><img src="http://ww3.sinaimg.cn/mw690/005EkSOcgw1f96lrl2zoij30r60r6n27.jpg" /></div>
-				<div className="WeChat" ref="WeChat" onClick={this.showWeChat}><img src="http://ww1.sinaimg.cn/mw690/005EkSOcgw1f96o9nfy0aj30lm0lmq59.jpg" /></div>
+				<div className="alipay" ref="alipay" onClick={this.showAlipay}><img src="https://ww3.sinaimg.cn/mw690/005EkSOcgw1f96lrl2zoij30r60r6n27.jpg" /></div>
+				<div className="WeChat" ref="WeChat" onClick={this.showWeChat}><img src="https://ww1.sinaimg.cn/mw690/005EkSOcgw1f96o9nfy0aj30lm0lmq59.jpg" /></div>
 			</div>
 		)
 	}
