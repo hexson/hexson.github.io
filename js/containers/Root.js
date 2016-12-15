@@ -43,7 +43,12 @@ var About = (location, cb) => {
 var Search = (location, cb) => {
 	require.ensure([], require => {
 		cb(null, require('../containers/Search.js').default)
-	}, 'about')
+	}, 'search')
+};
+var Nocontent = (location, cb) => {
+	require.ensure([], require => {
+		cb(null, require('../containers/Nocontent.js').default)
+	}, 'nocontent')
 };
 
 
@@ -56,6 +61,7 @@ const routes = (
 		<Route path="tags(/:tag)" getComponent={Tags} />
 		<Route path="about" getComponent={About} />
 		<Route path="search(/:keyword)" getComponent={Search} />
+		<Route path="**" getComponent={Nocontent} />
 	</Route>
 );
 
