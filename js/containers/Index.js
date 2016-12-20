@@ -28,7 +28,7 @@ class Index extends Component {
 					<Nav />
 				</div>
 				<div className="ng2-link ac">
-					@React By Hexson | <a href="/ng2">Angular 2 版</a>
+					@React By Hexson | <a href="/ng">Angular 2 版</a> | <a href="/vue">Vue 2 版</a>
 				</div>
 			</div>
 		)
