@@ -21,6 +21,16 @@ class Index extends Component {
 	}
 	render (){
 		return (
+			<div className="">
+				<div className="home-cot abs">
+					<div className="ac f16">
+						<span className="avatar mr5"></span>
+						<span className="master">{BASE.master}</span>
+					</div>
+				</div>
+			</div>
+		)
+		return (
 			<div>
 				<div className="index ac">
 					<div className="avatar"></div>
