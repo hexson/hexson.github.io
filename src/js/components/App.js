@@ -43,21 +43,6 @@ export default class App extends Component {
 		// 	window.LABELS = result;
 		// });
 	}
-	// componentDidMount (){
-	// 	$.ajax({
-	// 		url: 'json/labels.json',
-	// 		dataType: 'json',
-	// 		success: result => {
-	// 			window.LABELS = result;
-	// 			this.setState({
-	// 				labels: true
-	// 			})
-	// 		},
-	// 		error: msg => {
-	// 			console.log(msg);
-	// 		}
-	// 	})
-	// }
 	baiduStatistics (){
 		if (location.host.indexOf('hexson') >= 0){
 			var _hmt = _hmt || [];
