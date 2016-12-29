@@ -24,14 +24,6 @@ class Index extends Component {
 	componentDidMount (){
 		NProgress.done();
 		this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
-		$.ajax({
-			url: 'http://demo.tmc.flybycloud.com:6780/yitu8/callback',
-			type: 'POST',
-			dataType: 'json',
-			success: res => {
-				console.log(res)
-			}
-		})
 	}
 	routerWillLeave (){
 		NProgress.start();
@@ -39,15 +31,8 @@ class Index extends Component {
 	render (){
 		return (
 			<div className="home-cot abs">
-				<div className="home-start rel">
-					<div className="home-loading abs ac">
-						<strong>NOW LOADING</strong>
-						<br />
-						<span></span>
-					</div>
-				</div>
-				<div className="home-top rel none">
-					<div className="home-msg"></div>
+				<div className="home-top">
+					<Nav />
 				</div>
 			</div>
 		)

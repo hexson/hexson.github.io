@@ -7,7 +7,7 @@ import { MENU } from '../constants/Menu.js';
 class Nav extends Component {
 	render (){
 		return (
-			<ul>
+			<ul className="nav ac">
 				{
 					MENU.map((v,i) => 
 						<li key={i}>
