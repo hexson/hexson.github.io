@@ -2,8 +2,7 @@
 @font-family-1: \5FAE\8EDF\6B63\9ED1\9AD4;
 @font-family-2: \5FAE\8F6F\96C5\9ED1;
 @font-family-3: \534E\6587\7EC6\9ED1;
-@color: #2196f3;
-@color2: #26a2ff;
+@color: #7bcda3;
 @gray: #cccccc;
 
 /* base common */
@@ -152,73 +151,28 @@ del {
 .create-margin-padding(30);
 .create-font-size(30);
 
+.nav {
+  padding: 50px 0 0 50px;
+}
+.nav > li{
+  padding: 3px 15px;
+  letter-spacing: 2px;
+}
+
 .home-cot {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /*background-image: linear-gradient(180deg, #1F2D3D, #475669);*/
-}
-.home-start {
-  .wrap();
-  height: 100%;
-  background-color: #28333d;
-}
-.home-loading {
-  color: #fff;
-  width: 10rem;
-  height: 5rem;
-  top: 50%;
-  left: 50%;
-  margin: -2.5rem 0 0 -5rem;
-}
-.home-loading > strong {
-  line-height: 2rem;
-  padding-top: 1rem;
-  display: inline-block;
-  -webkit-animation: loading 1.2s infinite ease-in-out;
-  animation: loading 1.2s infinite ease-in-out;
-}
-
-@loadingX: 3px;
-@-webkit-keyframes loading {
-  0%, 10%, 15% { -webkit-transform: translateX(-1 * @loadingX) }
-  5%, 20% { -webkit-transform: translateX(@loadingX) }
-  25%, 100% { -webkit-transform: translateX(0px) }
-}
-@keyframes loading {
-  0%, 10%, 15% {
-    transform: translateX(-1 * @loadingX);
-    -webkit-transform: translateX(-1 * @loadingX);
-  } 5%, 20% {
-    transform: translateX(@loadingX);
-    -webkit-transform: translateX(@loadingX);
-  } 25%, 100% {
-    transform: translateX(0px);
-    -webkit-transform: translateX(0px);
-  }
-}
-.home-loading > span {
-  display: inline-block;
-  width: 8rem;
-  height: .5rem;
-  border: 1px solid #fff;
-  border-radius: 6px;
-  position: relative;
-  overflow: hidden;
-  &:after {
-    .wrap();
-    height: 100%;
-    content: '';
-    display: block;
-    background-color: #fff;
-  };
+  /*background: linear-gradient(180deg, #1F2D3D, #475669);*/
 }
 .home-top {
   .wrap();
   height: 70%;
-  background: -webkit-linear-gradient(180deg, #6190E8, #A7BFE8);
-  background: linear-gradient(180deg, #6190E8, #A7BFE8);
+  /*background: -webkit-linear-gradient(180deg, #6190E8, #A7BFE8);*/
+  /*background: linear-gradient(180deg, #6190E8, #A7BFE8);*/
+  /*background-color: #475669;*/
+  background: linear-gradient(180deg, #1F2D3D, #475669);
 }
 .home-bg(@i, @c, @h) {
   .home-bg-@{i} {
@@ -234,6 +188,10 @@ del {
 .home-bg(5, #00d2ff, #928dab);
 .home-bg(6, #ff5f6d, #ffc371);
 .home-bg(7, #eecda3, #ef629f);*/
+
+.home-top a {
+  color: #fff;
+}
 
 .avatar {
   width: 3rem;
