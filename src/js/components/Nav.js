@@ -7,11 +7,14 @@ import { MENU } from '../constants/Menu.js';
 class Nav extends Component {
 	render (){
 		return (
-			<ul className="nav ar">
+			<ul className="nav">
 				{
 					MENU.map((v,i) => 
 						<li key={i}>
-							<Link className="f14" to={v.path} activeStyle={{color: '#222222'}}>{v.name}</Link>
+							<svg className="icon f30" aria-hidden="true">
+								<use xlinkHref={'#' + v.icon}></use>
+							</svg>
+							<Link className="ml10 f14" to={v.path} activeStyle={{color: '#222222'}}>{v.name}</Link>
 						</li>
 					)
 				}

@@ -4,7 +4,7 @@ import NProgress from 'nprogress';
 
 
 import { BASE } from '../constants/Base.js';
-import Nav from '../components/Nav.js';
+import Header from '../components/Header.js';
 
 
 
@@ -32,12 +32,7 @@ class Index extends Component {
 		return (
 			<div className="home-cot abs">
 				<div className="home-nav">
-					<strong className="f22">Welcome</strong>
-					<Nav />
-					<div className="home-ah">
-						<span className="avatar"></span>
-						<span className="master">{BASE.master}</span>
-					</div>
+					<Header />
 				</div>
 			</div>
 		)
