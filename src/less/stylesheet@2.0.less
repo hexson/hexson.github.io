@@ -2,7 +2,8 @@
 @font-family-1: \5FAE\8EDF\6B63\9ED1\9AD4;
 @font-family-2: \5FAE\8F6F\96C5\9ED1;
 @font-family-3: \534E\6587\7EC6\9ED1;
-@color: #1F2D3D;
+@color: #71C3C5;
+@fontc: #1F2D3D;
 @gray: #cccccc;
 
 /* base common */
@@ -151,20 +152,13 @@ del {
 .create-margin-padding(30);
 .create-font-size(30);
 
-.nav {
-  padding: 50px 0;
-}
-.nav > li{
-  padding: 20px 15px;
-  letter-spacing: 2px;
-}
 
 .home-cot {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #EFF2F7;
+  /*background-color: #EFF2F7;*/
   /*background: linear-gradient(180deg, #1F2D3D, #475669);*/
 }
 .home-top {
@@ -191,28 +185,42 @@ del {
 .home-bg(7, #eecda3, #ef629f);*/
 
 .home-nav {
-  width: 200px;
+  width: 300px;
   height: 100%;
 }
-.home-ah {
-  position: relative;
-  left: 0;
-  bottom: 20px;
+
+.header {
+  .wrap();
+  height: 100%;
+  background-color: #EFF2F7;
 }
-.avatar {
-  width: 3rem;
+.nav {
+  /*padding: 50px 0;*/
+}
+.nav > li{
+  .wrap();
+  .bbox();
+  letter-spacing: 2px;
+  height: 7rem;
+  padding: 2rem 1.5rem;
+}
+.nav > li > a {
   height: 3rem;
   display: inline-block;
+  line-height: 3rem;
+}
+.avatar {
+  width: 6rem;
+  height: 6rem;
+  display: block;
+  margin: 0 auto;
   border-radius: 100%;
   background: url('https://ww4.sinaimg.cn/large/005EkSOcgw1fakt8lr3iuj303c03cdga.jpg') no-repeat center;
   background: -webkit-image-set(url('https://ww4.sinaimg.cn/large/005EkSOcgw1fakt8lr3iuj303c03cdga.jpg') 1x,url('https://ww3.sinaimg.cn/large/005EkSOcgw1fakt8mcdp9j306o06ogn5.jpg') 2x) no-repeat center;
   background-size: 100%;
-  float: left;
 }
 .master {
-  color: #fff;
-  display: inline-block;
-  height: 3rem;
-  line-height: 3rem;
-  float: left;
+  .wrap();
+  color: @fontc;
+  padding: 3rem 0 3rem 0;
 }
