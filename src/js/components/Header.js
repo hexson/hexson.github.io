@@ -8,9 +8,9 @@ export default class Header extends Component {
 	render (){
 		return (
 			<div className="header ac">
-				<div className="master-container">
+				<div className="master-container rel">
 					<div className="master f16">
-						<span className="avatar"></span>
+						<span className="avatar rel"></span>
 						<span>{BASE.master}</span>
 					</div>
 				</div>
