@@ -10,11 +10,11 @@ class Nav extends Component {
 			<ul className="nav">
 				{
 					MENU.map((v,i) => 
-						<li className="nav-item" key={i}>
+						<li className="nav-item al rel ov" key={i}>
 							<svg className="icon f30" aria-hidden="true">
 								<use xlinkHref={'#' + v.icon}></use>
 							</svg>
-							<Link className="ml20 f14" to={v.path} activeStyle={{color: '#222222'}}>{v.name}</Link>
+							<Link className="ml20 f14" to={v.path} activeStyle={{color: '#222222'}}>{v.name} / {v.path}</Link>
 						</li>
 					)
 				}
