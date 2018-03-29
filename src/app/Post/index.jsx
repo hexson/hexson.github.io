@@ -14,11 +14,9 @@ class Index extends Component {
 }
 
 function mapStateToProps(store) {
-    // console.log(store)
     return {
         routing: store.routing
     }
 }
 
 export default connect(mapStateToProps)(Index)
-// export default withRouter(Index)

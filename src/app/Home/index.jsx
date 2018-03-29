@@ -5,7 +5,10 @@ import { push } from 'react-router-redux';
 
 class Index extends Component {
     componentDidMount() {
-        console.log(this.props)
+        const {
+            nprogress
+        } = this.props;
+        nprogress.done();
     }
     handleClick() {
         console.log(111)
@@ -13,17 +16,15 @@ class Index extends Component {
     }
     render() {
         return (
-            <div onClick={this.handleClick.bind(this)}>hello</div>
+            <div>index</div>
         )
     }
 }
 
 function mapStateToProps(store) {
-    // console.log(store)
     return {
-        routing: store.routing
+        ...store
     }
 }
 
 export default connect(mapStateToProps)(Index)
-// export default withRouter(Index)
