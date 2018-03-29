@@ -31,9 +31,9 @@ module.exports = () => ({
             {
                 test: /\.(css|less)$/,
                 use: [
+                    'style-loader',
                     dev ? 'css-loader' : 'css-loader?minimize',
-                    'less-loader',
-                    'style-loader'
+                    'less-loader'
                 ]
             },
             {
@@ -43,7 +43,7 @@ module.exports = () => ({
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['react', 'env']
+                            presets: ['react', 'es2015']
                         }
                     }
                 ]
