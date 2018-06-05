@@ -30,6 +30,11 @@ a {
     // background-color: #333333;
     // color: #ffffff;
     text-align: center;
+    .wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
     .title {
         padding: 20px 0 0 0;
     }
@@ -49,12 +54,16 @@ a {
     .link {
         font-size: 14px;
         margin: 30px 0;
-        a {
+        a, span {
             display: inline-block;
-            padding: 0 10px;
+            padding: 0 15px;
+            // color: rgb(192, 49, 92);
+            font-size: 12px;
+            color: #555555;
         }
     }
     .nav {
+        padding-top: 20px;
         li {
             .active {
                 color: @themeColor;
@@ -87,6 +96,24 @@ a {
             }
             i {
                 margin-right: 10px;
+            }
+        }
+    }
+    .contact {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 80px;
+        a {
+            width: 80px;
+            display: inline-block;
+            font-size: 13px;
+            text-align: left;
+            margin: 5px 10px;
+            color: #555555;
+            transition: all 0.2s ease;
+            &:hover {
+                transform: translateX(-2px);
             }
         }
     }
